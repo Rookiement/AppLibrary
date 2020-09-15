@@ -9,8 +9,8 @@ gradle.ext.versionCode = 1
 gradle.ext.versionName = "1.0"
 
 // maven url
-gradle.ext.maveUrlSnapshot = System.getProperty("user.dir") + "/AppRespository/SNAPSHOT"
-gradle.ext.maveUrlRelease = System.getProperty("user.home") + "/AppRespository/RELEASE"
+gradle.ext.maveUrlSnapshot = System.getProperty("user.dir") + "/AppRespository/snapshot"
+gradle.ext.maveUrlRelease = System.getProperty("user.home") + "/AppRespository/release"
 gradle.ext.maveGroupId = "com.base.library"
 gradle.ext.mavePublishingRelease = false
 
