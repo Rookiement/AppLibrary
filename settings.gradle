@@ -1,2 +1,34 @@
+include ':Library-Font'
+gradle.ext.androidPluginVersion = "4.0.1"
+
+gradle.ext.applicationId = "com.library.test"
+gradle.ext.compileSdkVersion = 30
+gradle.ext.buildToolsVersion = "30.0.2"
+gradle.ext.minSdkVersion = 16
+gradle.ext.targetSdkVersion = 30
+gradle.ext.versionCode = 1
+gradle.ext.versionName = "1.0"
+
+// maven url
+gradle.ext.maveUrlSnapshot = System.getProperty("user.dir") + "/AppRespository/SNAPSHOT"
+gradle.ext.maveUrlRelease = System.getProperty("user.home") + "/AppRespository/RELEASE"
+gradle.ext.maveGroupId = "com.base.library"
+gradle.ext.mavePublishingRelease = false
+
+// androidx library
+gradle.ext.androidxJunit = "4.12"
+gradle.ext.androidxTestJunit = "1.1.1"
+gradle.ext.androidxTestEspresso = "3.2.0"
+
+gradle.ext.androidxAppcompat = "1.1.0"
+gradle.ext.androidxConstraintlayout = "1.1.3"
+gradle.ext.androidxRecyclerView = "1.2.0-alpha03"
+gradle.ext.androidxViewPager2 = "1.1.0-alpha01"
+
+gradle.ext.androidxRoom = "2.2.5"
+
+// google library
+gradle.ext.googleMaterial = "1.1.0"
+
 include ':app'
 rootProject.name = "AppLibrary"
