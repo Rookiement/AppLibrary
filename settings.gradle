@@ -32,5 +32,7 @@ gradle.ext.googleMaterial = "1.1.0"
 include ':Library-Utils'
 include ':Library-UI'
 include ':Library-Font'
+include ':Library-NetWork'
+include ':Library-Common'
 include ':app'
 rootProject.name = "AppLibrary"
