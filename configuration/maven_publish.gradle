@@ -1,0 +1,52 @@
+apply plugin: 'maven-publish'
+
+task sourcesJar(type: Jar) {
+    archiveClassifier = 'sources'
+    from android.sourceSets.main.java.srcDirs
+}
+
+def isPublishingRelease = gradle.mavePublishingRelease
+def destinationOutputDir = 'build/outputs/aar'
+publishing {
+    publications {
+        maven(MavenPublication) {
+            groupId "${gradle.maveGroupId}"
+            artifactId "${project.name.toLowerCase()}"
+            version "${project.version}"
+
+            // build/outputs/aar/Font-debug.aar
+            artifact "${destinationOutputDir}/${project.name}-release.aar"
+            artifact sourcesJar
+
+            // The publication doesn't know about our dependencies,
+            // so we have to manually add them to the pom
+            pom.withXml {
+                def dependenciesNode = asNode().appendNode('dependencies')
+                configurations.implementation.allDependencies.each {
+                    if (it.group != null
+                            && !it.group.startsWith("androidx")
+                            && it.group != getRootProject().name
+                            && it.name != null
+                            && it.name != "unspecified"
+                            && it.version != null) {
+                        addPomDependencies(it, dependenciesNode)
+                    }
+                }
+            }
+        }
+    }
+    repositories {
+        maven {
+            // 配置仓库地址 Configure warehouse address
+            if (isPublishingRelease) {
+                url = "${gradle.maveUrlRelease}"
+//                credentials {
+//                    username = System.getenv('OSS_USER')
+//                    password = System.getenv('OSS_PASSWORD')
+//                }
+            } else {
+                url = "${gradle.maveUrlSnapshot}"
+            }
+        }
+    }
+}
