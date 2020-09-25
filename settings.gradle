@@ -21,7 +21,7 @@ gradle.ext.androidxTestEspresso = "3.3.0"
 
 gradle.ext.androidxAppcompat = "1.2.0"
 gradle.ext.androidxConstraintlayout = "1.1.3"
-gradle.ext.androidxRecyclerView = "1.2.0-alpha03"
+gradle.ext.androidxRecyclerView = "1.1.0"
 gradle.ext.androidxViewPager2 = "1.1.0-alpha01"
 
 gradle.ext.androidxRoom = "2.2.5"
