@@ -12,20 +12,24 @@ import com.base.library.common.AppNavigateUtil;
 /**
  * @author reber
  */
-public abstract class AppBaseActivity extends AppCompatActivity {
+public abstract class BaseAppActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutId());
-        onInitCreateWithState(savedInstanceState);
+        if (savedInstanceState != null) {
+            onInitCreateWithState(savedInstanceState);
+        } else {
+            onInitCreateWithState(getParamBundle());
+        }
     }
 
     /**
      * 获取activity传递的参数bundle
      */
-    protected Bundle getParamBundle() {
-        return getIntent().getBundleExtra(AppNavigateUtil.ARG_ACTIVITY_BUNDLE);
+    private Bundle getParamBundle() {
+        return AppNavigateUtil.getBundleParams(this);
     }
 
     /**
@@ -38,4 +42,9 @@ public abstract class AppBaseActivity extends AppCompatActivity {
      * 在onCreate方法中，调用setContentView后的初始化，
      */
     protected abstract void onInitCreateWithState(@Nullable Bundle savedInstanceState);
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
 }

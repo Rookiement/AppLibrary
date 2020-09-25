@@ -39,7 +39,7 @@ public class AppRecyclerView extends RecyclerView {
     }
 
     /**
-     *  移除recyclerView的焦点
+     * 移除recyclerView的焦点
      */
     public void removeDefaultFocusable(boolean focusable) {
         setFocusable(focusable);

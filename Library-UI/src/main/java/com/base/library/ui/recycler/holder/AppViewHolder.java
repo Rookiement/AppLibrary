@@ -1,14 +1,9 @@
 package com.base.library.ui.recycler.holder;
 
 import android.content.Context;
-import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
-import android.util.SparseArray;
-import android.util.TypedValue;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
 
 import androidx.annotation.ColorInt;
 import androidx.annotation.ColorRes;
@@ -17,136 +12,169 @@ import androidx.annotation.DrawableRes;
 import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
-import androidx.core.content.ContextCompat;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleObserver;
+import androidx.lifecycle.LifecycleRegistry;
+import androidx.lifecycle.OnLifecycleEvent;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class AppViewHolder<T> extends RecyclerView.ViewHolder {
+import com.base.library.ui.delegate.AppViewDelegate;
+import com.base.library.ui.helper.AppViewHelper;
 
-    private final SparseArray<View> mViews;
+/**
+ * @param <T>
+ * @author reber
+ */
+public class AppViewHolder<T> extends RecyclerView.ViewHolder implements LifecycleObserver,
+        AppViewDelegate<AppViewHolder<T>> {
+
+    private AppViewHelper mViewHelper;
 
     public AppViewHolder(@NonNull View itemView) {
+        this(itemView, null);
+    }
+
+    public AppViewHolder(@NonNull View itemView, LifecycleRegistry lifecycleRegistry) {
         super(itemView);
-        this.mViews = new SparseArray<>();
-    }
-
-    public AppViewHolder<T> setText(@IdRes int viewId, String text) {
-        TextView textView = findViewById(viewId);
-        textView.setText(text);
-        return this;
-    }
-
-    public AppViewHolder<T> setText(@IdRes int viewId, @StringRes int stringResId) {
-        TextView textView = findViewById(viewId);
-        textView.setText(getContext().getString(stringResId));
-        return this;
-    }
-
-    public AppViewHolder<T> setText(@IdRes int viewId, @StringRes int stringResId, Object... formatArgs) {
-        TextView textView = findViewById(viewId);
-        textView.setText(getContext().getString(stringResId, formatArgs));
-        return this;
-    }
-
-    public AppViewHolder<T> setTextColorWithRes(@IdRes int viewId, @ColorRes int colorResId) {
-        TextView textView = findViewById(viewId);
-        textView.setTextColor(ContextCompat.getColor(getContext(), colorResId));
-        return this;
-    }
-
-    public AppViewHolder<T> setTextColorWithValue(@IdRes int viewId, @ColorInt int colorValue) {
-        TextView textView = findViewById(viewId);
-        textView.setTextColor(colorValue);
-        return this;
-    }
-
-    public AppViewHolder<T> setTextSizeWithRes(@IdRes int viewId, @DimenRes int dimensResId) {
-        TextView textView = findViewById(viewId);
-        textView.setTextSize(getContext().getResources().getDimension(dimensResId));
-        return this;
-    }
-
-    public AppViewHolder<T> setTextSizeWithValue(@IdRes int viewId, float textSizValue) {
-        TextView textView = findViewById(viewId);
-        textView.setTextSize(textSizValue);
-        return this;
-    }
-
-    public AppViewHolder<T> setTextSizeBySp(@IdRes int viewId, float spValue) {
-        TextView textView = findViewById(viewId);
-        textView.setTextSize(spToPx(spValue));
-        return this;
-    }
-
-    public AppViewHolder<T> setTextSizeByDp(@IdRes int viewId, float dpValue) {
-        TextView textView = findViewById(viewId);
-        textView.setTextSize(dpToPx(dpValue));
-        return this;
-    }
-
-    public AppViewHolder<T> setBackgroundResource(@IdRes int viewId, @DrawableRes int drawableResId) {
-        View view = findViewById(viewId);
-        view.setBackground(ContextCompat.getDrawable(getContext(), drawableResId));
-        return this;
-    }
-
-    public AppViewHolder<T> setBackgroundDrawable(@IdRes int viewId, Drawable drawable) {
-        View view = findViewById(viewId);
-        view.setBackground(drawable);
-        return this;
-    }
-
-    public AppViewHolder<T> setBackgroundColor(@IdRes int viewId, @ColorRes int colorResId) {
-        View view = findViewById(viewId);
-        view.setBackgroundColor(ContextCompat.getColor(getContext(), colorResId));
-        return this;
-    }
-
-    public AppViewHolder<T> setImageResource(@IdRes int viewId, @DrawableRes int drawableResId) {
-        ImageView view = findViewById(viewId);
-        view.setImageResource(drawableResId);
-        return this;
-    }
-
-    public AppViewHolder<T> setImageDrawable(@IdRes int viewId, Drawable drawable) {
-        ImageView view = findViewById(viewId);
-        view.setImageDrawable(drawable);
-        return this;
-    }
-
-    public AppViewHolder<T> setImageBitmap(@IdRes int viewId, Bitmap bitmap) {
-        ImageView view = findViewById(viewId);
-        view.setImageBitmap(bitmap);
-        return this;
-    }
-
-    public void setOnClickListener(@IdRes int viewId, View.OnClickListener listener) {
-        findViewById(viewId).setOnClickListener(listener);
-    }
-
-    public void setOnLongClickListener(@IdRes int viewId, View.OnLongClickListener listener) {
-        findViewById(viewId).setOnLongClickListener(listener);
-    }
-
-    public final <V extends View> V findViewById(@IdRes int viewId) {
-        View view = mViews.get(viewId);
-        if (view == null) {
-            view = itemView.findViewById(viewId);
-            mViews.put(viewId, view);
+        this.mViewHelper = new AppViewHelper(itemView);
+        if (lifecycleRegistry != null) {
+            lifecycleRegistry.addObserver(this);
         }
-        return (V) view;
-    }
-
-    private float dpToPx(float dipValue) {
-        final float scale = getContext().getResources().getDisplayMetrics().density;
-        return (int) (dipValue * scale + 0.5f);
-    }
-
-    private float spToPx(float sp) {
-        Resources resources = getContext().getResources();
-        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, sp, resources.getDisplayMetrics());
     }
 
     public Context getContext() {
-        return itemView.getContext();
+        return mViewHelper.getContext();
+    }
+
+    @Override
+    public AppViewHolder<T> setText(@IdRes int viewId, String text) {
+        mViewHelper.setText(viewId, text);
+        return this;
+    }
+
+    @Override
+    public AppViewHolder<T> setText(@IdRes int viewId, @StringRes int stringResId) {
+        mViewHelper.setText(viewId, stringResId);
+        return this;
+    }
+
+    @Override
+    public AppViewHolder<T> setText(@IdRes int viewId, @StringRes int stringResId, Object... formatArgs) {
+        mViewHelper.setText(viewId, stringResId, formatArgs);
+        return this;
+    }
+
+    @Override
+    public AppViewHolder<T> setTextColorWithRes(@IdRes int viewId, @ColorRes int colorResId) {
+        mViewHelper.setTextColorWithRes(viewId, colorResId);
+        return this;
+    }
+
+    @Override
+    public AppViewHolder<T> setTextColorWithValue(@IdRes int viewId, @ColorInt int colorValue) {
+        mViewHelper.setTextColorWithValue(viewId, colorValue);
+        return this;
+    }
+
+    @Override
+    public AppViewHolder<T> setTextSizeWithRes(@IdRes int viewId, @DimenRes int dimensResId) {
+        mViewHelper.setTextSizeWithRes(viewId, dimensResId);
+        return this;
+    }
+
+    @Override
+    public AppViewHolder<T> setTextSizeWithValue(@IdRes int viewId, float textSizValue) {
+        mViewHelper.setTextSizeWithValue(viewId, textSizValue);
+        return this;
+    }
+
+    @Override
+    public AppViewHolder<T> setTextSizeBySp(@IdRes int viewId, float spValue) {
+        mViewHelper.setTextSizeBySp(viewId, spValue);
+        return this;
+    }
+
+    @Override
+    public AppViewHolder<T> setTextSizeByDp(@IdRes int viewId, float dpValue) {
+        mViewHelper.setTextSizeByDp(viewId, dpValue);
+        return this;
+    }
+
+    @Override
+    public AppViewHolder<T> setBackgroundResource(@IdRes int viewId, @DrawableRes int drawableResId) {
+        mViewHelper.setBackgroundResource(viewId, drawableResId);
+        return this;
+    }
+
+    @Override
+    public AppViewHolder<T> setBackgroundDrawable(@IdRes int viewId, Drawable drawable) {
+        mViewHelper.setBackgroundDrawable(viewId, drawable);
+        return this;
+    }
+
+    @Override
+    public AppViewHolder<T> setBackgroundColor(@IdRes int viewId, @ColorRes int colorResId) {
+        mViewHelper.setBackgroundColor(viewId, colorResId);
+        return this;
+    }
+
+    @Override
+    public AppViewHolder<T> setImageResource(@IdRes int viewId, @DrawableRes int drawableResId) {
+        mViewHelper.setImageResource(viewId, drawableResId);
+        return this;
+    }
+
+    @Override
+    public AppViewHolder<T> setImageDrawable(@IdRes int viewId, Drawable drawable) {
+        mViewHelper.setImageDrawable(viewId, drawable);
+        return this;
+    }
+
+    @Override
+    public AppViewHolder<T> setImageBitmap(@IdRes int viewId, Bitmap bitmap) {
+        mViewHelper.setImageBitmap(viewId, bitmap);
+        return this;
+    }
+
+    @Override
+    public AppViewHolder<T> setEnable(int viewId, boolean enable) {
+        mViewHelper.setEnable(viewId, enable);
+        return this;
+    }
+
+    @Override
+    public AppViewHolder<T> setSelected(int viewId, boolean selected) {
+        mViewHelper.setSelected(viewId, selected);
+        return this;
+    }
+
+    @Override
+    public AppViewHolder<T> setVisible(int viewId, boolean visible) {
+        mViewHelper.setVisible(viewId, visible);
+        return this;
+    }
+
+    @Override
+    public AppViewHolder<T> setINVisible(int viewId, boolean visible) {
+        mViewHelper.setINVisible(viewId, visible);
+        return this;
+    }
+
+    @Override
+    public AppViewHolder<T> setOnClickListener(@IdRes int viewId, View.OnClickListener listener) {
+        mViewHelper.setOnClickListener(viewId, listener);
+        return this;
+    }
+
+    @Override
+    public AppViewHolder<T> setOnLongClickListener(@IdRes int viewId, View.OnLongClickListener listener) {
+        mViewHelper.setOnLongClickListener(viewId, listener);
+        return this;
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+    public void onDestroy() {
+        this.mViewHelper.onDestroy();
+        this.mViewHelper = null;
     }
 }

@@ -10,10 +10,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.base.library.common.AppNavigateUtil;
+
 /**
  * @author reber
  */
-public abstract class AppBaseFragment extends Fragment {
+public abstract class BaseAppFragment extends Fragment {
 
     @Nullable
     @Override
@@ -22,9 +24,27 @@ public abstract class AppBaseFragment extends Fragment {
     }
 
     @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        onInitViewCreated(view);
+    }
+
+    @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        onInitActivityCreated(savedInstanceState);
+        Bundle arguments = getParamBundle();
+        if (savedInstanceState != null) {
+            onInitActivityCreated(savedInstanceState);
+        } else {
+            onInitActivityCreated(arguments);
+        }
+    }
+
+    /**
+     * 获取Fragment传递的参数bundle
+     */
+    private Bundle getParamBundle() {
+        return AppNavigateUtil.getArgumentsParams(this);
     }
 
     /**
@@ -32,6 +52,13 @@ public abstract class AppBaseFragment extends Fragment {
      */
     @LayoutRes
     protected abstract int getLayoutId();
+
+    /**
+     * 在View创建成功后，onViewCreated之后调用
+     *
+     * @param contentView onCreateView返回值
+     */
+    protected abstract void onInitViewCreated(@NonNull View contentView);
 
     /**
      * 在onCreate方法中，调用setContentView后的初始化，
