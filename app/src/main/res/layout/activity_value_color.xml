@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.base.library.ui.flow.AppFlowLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:flowGravity="left"
+    tools:ignore="HardcodedText">
+
+    <TextView
+        style="@style/Layout.WW"
+        android:background="@color/color_333333"
+        android:padding="@dimen/dp_10"
+        android:text="Test"
+        android:textColor="@color/appTextWhite"
+        android:textSize="@dimen/sp_16" />
+
+    <TextView
+        style="@style/Layout.WW"
+        android:padding="@dimen/dp_10"
+        android:text="Test"
+        android:textColor="@color/appTextBlack"
+        android:textSize="@dimen/sp_16" />
+
+    <TextView
+        style="@style/Layout.WW"
+        android:padding="@dimen/dp_10"
+        android:text="Test"
+        android:textColor="@color/appTextGray"
+        android:textSize="@dimen/sp_16" />
+
+    <TextView
+        style="@style/Layout.WW"
+        android:padding="@dimen/dp_10"
+        android:text="Test"
+        android:textColor="@color/appTextRed"
+        android:textSize="@dimen/sp_16" />
+</com.base.library.ui.flow.AppFlowLayout>

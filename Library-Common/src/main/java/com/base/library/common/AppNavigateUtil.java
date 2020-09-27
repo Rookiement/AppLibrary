@@ -56,12 +56,20 @@ public class AppNavigateUtil {
         transaction.commitAllowingStateLoss();
     }
 
+    public static void startActivity(@NonNull Activity activity, @NonNull Class<? extends Activity> clazz) {
+        startActivity(activity, clazz, null);
+    }
+
     public static void startActivity(@NonNull Activity activity, @NonNull Class<? extends Activity> clazz, Bundle bundle) {
         Intent intent = new Intent(activity, clazz);
         if (bundle != null) {
             intent.putExtra(ARG_ACTIVITY_BUNDLE, bundle);
         }
         activity.startActivity(intent);
+    }
+
+    public static void startActivityForResult(@NonNull Activity activity, @NonNull Class<? extends Activity> clazz, int requestCode) {
+        startActivityForResult(activity, clazz, null, requestCode);
     }
 
     public static void startActivityForResult(@NonNull Activity activity, @NonNull Class<? extends Activity> clazz, Bundle bundle, int requestCode) {
@@ -72,12 +80,20 @@ public class AppNavigateUtil {
         activity.startActivityForResult(intent, requestCode);
     }
 
+    public static void startActivity(@NonNull Fragment fragment, @NonNull Class<? extends Activity> clazz) {
+        startActivity(fragment, clazz, null);
+    }
+
     public static void startActivity(@NonNull Fragment fragment, @NonNull Class<? extends Activity> clazz, Bundle bundle) {
         Intent intent = new Intent(fragment.requireContext(), clazz);
         if (bundle != null) {
             intent.putExtra(ARG_ACTIVITY_BUNDLE, bundle);
         }
         fragment.startActivity(intent);
+    }
+
+    public static void startActivityForResult(@NonNull Fragment fragment, @NonNull Class<? extends Activity> clazz, int requestCode) {
+        startActivityForResult(fragment, clazz, null, requestCode);
     }
 
     public static void startActivityForResult(@NonNull Fragment fragment, @NonNull Class<? extends Activity> clazz, Bundle bundle, int requestCode) {
