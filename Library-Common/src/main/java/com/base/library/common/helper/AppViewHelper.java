@@ -1,4 +1,4 @@
-package com.base.library.ui.helper;
+package com.base.library.common.helper;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -18,10 +18,14 @@ import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
 import androidx.core.content.ContextCompat;
+import androidx.lifecycle.Lifecycle;
+import androidx.lifecycle.LifecycleObserver;
+import androidx.lifecycle.OnLifecycleEvent;
 
-import com.base.library.ui.delegate.AppViewDelegate;
-
-public class AppViewHelper implements AppViewDelegate<AppViewHelper> {
+/**
+ * @author reber
+ */
+public class AppViewHelper implements AppViewDelegate<AppViewHelper>, LifecycleObserver {
 
     private View mContentView;
 
@@ -30,6 +34,14 @@ public class AppViewHelper implements AppViewDelegate<AppViewHelper> {
     public AppViewHelper(@NonNull View contentView) {
         this.mContentView = contentView;
         this.mItemViews = new SparseArray<>();
+    }
+
+    public View getContentView() {
+        return mContentView;
+    }
+
+    public void setContentView(View contentView) {
+        this.mContentView = contentView;
     }
 
     public Context getContext() {
@@ -79,7 +91,7 @@ public class AppViewHelper implements AppViewDelegate<AppViewHelper> {
     }
 
     @Override
-    public AppViewHelper setTextSizeWithValue(@IdRes int viewId, float textSizValue) {
+    public AppViewHelper setTextSizeByPx(@IdRes int viewId, float textSizValue) {
         TextView textView = findViewById(viewId);
         textView.setTextSize(textSizValue);
         return this;
@@ -228,6 +240,7 @@ public class AppViewHelper implements AppViewDelegate<AppViewHelper> {
         }
     }
 
+    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
     public void onDestroy() {
         this.mContentView = null;
         this.mItemViews.clear();

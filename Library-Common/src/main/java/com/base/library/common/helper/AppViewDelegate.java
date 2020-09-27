@@ -1,4 +1,4 @@
-package com.base.library.ui.delegate;
+package com.base.library.common.helper;
 
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
@@ -11,6 +11,10 @@ import androidx.annotation.DrawableRes;
 import androidx.annotation.IdRes;
 import androidx.annotation.StringRes;
 
+/**
+ * @param <T>
+ * @author reber
+ */
 public interface AppViewDelegate<T> {
 
     T setText(@IdRes int viewId, String text);
@@ -25,7 +29,7 @@ public interface AppViewDelegate<T> {
 
     T setTextSizeWithRes(@IdRes int viewId, @DimenRes int dimensResId);
 
-    T setTextSizeWithValue(@IdRes int viewId, float textSizValue);
+    T setTextSizeByPx(@IdRes int viewId, float textSizValue);
 
     T setTextSizeBySp(@IdRes int viewId, float spValue);
 

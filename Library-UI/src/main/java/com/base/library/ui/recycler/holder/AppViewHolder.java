@@ -18,8 +18,8 @@ import androidx.lifecycle.LifecycleRegistry;
 import androidx.lifecycle.OnLifecycleEvent;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.base.library.ui.delegate.AppViewDelegate;
-import com.base.library.ui.helper.AppViewHelper;
+import com.base.library.common.helper.AppViewDelegate;
+import com.base.library.common.helper.AppViewHelper;
 
 /**
  * @param <T>
@@ -83,8 +83,8 @@ public class AppViewHolder<T> extends RecyclerView.ViewHolder implements Lifecyc
     }
 
     @Override
-    public AppViewHolder<T> setTextSizeWithValue(@IdRes int viewId, float textSizValue) {
-        mViewHelper.setTextSizeWithValue(viewId, textSizValue);
+    public AppViewHolder<T> setTextSizeByPx(@IdRes int viewId, float textSizValue) {
+        mViewHelper.setTextSizeByPx(viewId, textSizValue);
         return this;
     }
 

@@ -11,11 +11,14 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.base.library.common.AppNavigateUtil;
+import com.base.library.common.helper.AppViewHelper;
 
 /**
  * @author reber
  */
 public abstract class BaseAppFragment extends Fragment {
+
+    private AppViewHelper mViewHelper;
 
     @Nullable
     @Override
@@ -26,7 +29,12 @@ public abstract class BaseAppFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        onInitViewCreated(view);
+        if (mViewHelper == null) {
+            this.mViewHelper = new AppViewHelper(view);
+            getLifecycle().addObserver(this.mViewHelper);
+        } else {
+            this.mViewHelper.setContentView(view);
+        }
     }
 
     @Override
@@ -34,9 +42,9 @@ public abstract class BaseAppFragment extends Fragment {
         super.onActivityCreated(savedInstanceState);
         Bundle arguments = getParamBundle();
         if (savedInstanceState != null) {
-            onInitActivityCreated(savedInstanceState);
+            onInitActivityCreated(mViewHelper, savedInstanceState);
         } else {
-            onInitActivityCreated(arguments);
+            onInitActivityCreated(mViewHelper, arguments);
         }
     }
 
@@ -47,6 +55,11 @@ public abstract class BaseAppFragment extends Fragment {
         return AppNavigateUtil.getArgumentsParams(this);
     }
 
+    @NonNull
+    public AppViewHelper getViewHelper() {
+        return mViewHelper;
+    }
+
     /**
      * 获取Fragment的布局Id
      */
@@ -54,14 +67,9 @@ public abstract class BaseAppFragment extends Fragment {
     protected abstract int getLayoutId();
 
     /**
-     * 在View创建成功后，onViewCreated之后调用
-     *
-     * @param contentView onCreateView返回值
-     */
-    protected abstract void onInitViewCreated(@NonNull View contentView);
-
-    /**
      * 在onCreate方法中，调用setContentView后的初始化，
+     *
+     * @param viewHelper 根据onCreateView返回值View，封装成一个helper辅助类
      */
-    protected abstract void onInitActivityCreated(@Nullable Bundle savedInstanceState);
+    protected abstract void onInitActivityCreated(@NonNull AppViewHelper viewHelper, @Nullable Bundle savedInstanceState);
 }

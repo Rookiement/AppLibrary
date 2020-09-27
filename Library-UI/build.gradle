@@ -3,6 +3,7 @@ apply from: "../configuration/library.gradle"
 dependencies {
     implementation "androidx.appcompat:appcompat:$gradle.androidxAppcompat"
     implementation "androidx.recyclerview:recyclerview:$gradle.androidxRecyclerView"
+    implementation project(path: ':Library-Common')
 
     testImplementation "junit:junit:$gradle.androidxJunit"
     androidTestImplementation "androidx.test.ext:junit:$gradle.androidxTestJunit"
