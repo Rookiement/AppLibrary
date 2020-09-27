@@ -12,10 +12,8 @@ public class GenerateFileTool {
 
     public final static String BASE_RES_PATH = System.getProperty("user.dir") + "/Library-UI/src/main/res";
     public final static String DEFAULT_RES_VALUE_PATH = BASE_RES_PATH + File.separator + "values";
-    /**
-     * 默认的dimens.xml文件路径
-     */
-    public final static String DEFAULT_DIMENS_PATH = DEFAULT_RES_VALUE_PATH + File.separator + "dimens.xml";
+
+    public final static String DIMENS_FILE_NAME = "dimens.xml"; // dimens的文件名称
 
     public static StringBuilder getStartStringBuilder() {
         return new StringBuilder()
@@ -30,12 +28,6 @@ public class GenerateFileTool {
                 .append("\n");
         return stringBuilder;
     }
-
-    public static String getDimensAutoParentPath(int swValue) {
-        //parent path: "../main/res/values-sw300dp"
-        return "values-sw" + swValue + "dp";
-    }
-
 
     /**
      * values下的文件是否存在

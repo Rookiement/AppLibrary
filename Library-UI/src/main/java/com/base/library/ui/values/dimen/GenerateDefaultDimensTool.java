@@ -3,6 +3,7 @@ package com.base.library.ui.values.dimen;
 import com.base.library.ui.values.GenerateFileTool;
 
 import static com.base.library.ui.values.GenerateFileTool.DEFAULT_RES_VALUE_PATH;
+import static com.base.library.ui.values.GenerateFileTool.DIMENS_FILE_NAME;
 
 /**
  * @author reber
@@ -10,10 +11,8 @@ import static com.base.library.ui.values.GenerateFileTool.DEFAULT_RES_VALUE_PATH
  * 生成默认的dp/sp数据
  */
 public class GenerateDefaultDimensTool {
-    /**
-     * dimens的文件名称
-     */
-    private final static String DIMENS_FILE_NAME = "dimens.xml";
+    private final static String DIMENS_UNIT_DP = "dp";
+    private final static String DIMENS_UNIT_SP = "sp";
 
     private GenerateDefaultDimensTool() {
         throw new ExceptionInInitializerError(
@@ -31,7 +30,7 @@ public class GenerateDefaultDimensTool {
         if (dpCount > 0) {
             //    <dimen name="dp_0">0dp</dimen>
             for (int value = 0; value <= dpCount; value++) {
-                insertDpValueLine(sBuilder, value, "dp");
+                insertDpValueLine(sBuilder, value, DIMENS_UNIT_DP);
             }
         }
 
@@ -39,7 +38,7 @@ public class GenerateDefaultDimensTool {
             sBuilder.append("\n");
             //    <dimen name="sp_0">0sp</dimen>
             for (int value = spStartValue; value <= spCount; value++) {
-                insertDpValueLine(sBuilder, value, "sp");
+                insertDpValueLine(sBuilder, value, DIMENS_UNIT_SP);
             }
         }
 
