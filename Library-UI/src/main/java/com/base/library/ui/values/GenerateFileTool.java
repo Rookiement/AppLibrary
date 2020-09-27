@@ -32,6 +32,18 @@ public class GenerateFileTool {
         };
     }
 
+    public static String getParamValue(String param) {
+        switch (param) {
+            case "0":
+                return "0dp";
+            case "W":
+                return "wrap_content";
+            case "M":
+            default:
+                return "match_parent";
+        }
+    }
+
     public static List<NameValueModel> getDefaultFontStyles() {
         List<NameValueModel> mFontStyles = new ArrayList<>();
         mFontStyles.add(new NameValueModel("RobotoBold", "roboto_bold"));
