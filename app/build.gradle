@@ -24,10 +24,16 @@ android {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
-    implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+    implementation project(path: ':Library-Font')
+    implementation project(path: ':Library-Utils')
+    implementation project(path: ':Library-Common')
+    implementation project(path: ':Library-UI')
+    implementation project(path: ':Library-NetWork')
 
+    implementation "androidx.appcompat:appcompat:$gradle.androidxAppcompat"
+    implementation "androidx.constraintlayout:constraintlayout:$gradle.androidxConstraintlayout"
+    
+    testImplementation "junit:junit:$gradle.androidxJunit"
+    androidTestImplementation "androidx.test.ext:junit:$gradle.androidxTestJunit"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$gradle.androidxTestEspresso"
 }
