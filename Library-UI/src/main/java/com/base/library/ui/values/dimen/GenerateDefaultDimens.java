@@ -7,11 +7,11 @@ import com.base.library.ui.values.GenerateFileTool;
  * <p>
  * 生成默认的dp/sp数据
  */
-public class GenerateDefaultDimensTool {
+public class GenerateDefaultDimens {
     private final static String DIMENS_UNIT_DP = "dp";
     private final static String DIMENS_UNIT_SP = "sp";
 
-    private GenerateDefaultDimensTool() {
+    private GenerateDefaultDimens() {
         throw new ExceptionInInitializerError(
                 getClass().getSimpleName() + " can't created,this is a tool file.");
     }
@@ -22,6 +22,11 @@ public class GenerateDefaultDimensTool {
     }
 
     private static void generateDefaultDimens(int dpCount, int spCount, int spStartValue) {
+        // 如果没有默认的Dimens.xml,不设置值
+        if (!GenerateFileTool.fileExist(GenerateFileTool.getDefaultResValuePath())) {
+            return;
+        }
+
         StringBuilder sBuilder = GenerateFileTool.getStartStringBuilder();
         sBuilder.append("\n");
         if (dpCount > 0) {

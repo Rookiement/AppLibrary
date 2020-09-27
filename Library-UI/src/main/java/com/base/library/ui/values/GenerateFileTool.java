@@ -4,6 +4,8 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author reber
@@ -30,12 +32,12 @@ public class GenerateFileTool {
         };
     }
 
-    public static String[] getFontColorArray() {
-        return new String[]{
-                "W_W", "W_M", "W_0",
-                "M_W", "M_M", "M_0",
-                "0_W", "0_M", "0_0"
-        };
+    public static List<NameValueModel> getDefaultFontStyles() {
+        List<NameValueModel> mFontStyles = new ArrayList<>();
+        mFontStyles.add(new NameValueModel("RobotoBold", "roboto_bold"));
+        mFontStyles.add(new NameValueModel("RobotoItalic", "roboto_italic"));
+        mFontStyles.add(new NameValueModel("RobotoRegular", "roboto_regular"));
+        return mFontStyles;
     }
 
     public static StringBuilder getStartStringBuilder() {
@@ -56,7 +58,7 @@ public class GenerateFileTool {
      * values下的文件是否存在
      */
     public static boolean fileExist(String filePath) {
-        return !new File(filePath).exists();
+        return new File(filePath).exists();
     }
 
     /**

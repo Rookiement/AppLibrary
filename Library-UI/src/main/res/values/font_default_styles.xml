@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="RobotoBold">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+    </style>
+    <style name="RobotoItalic">
+        <item name="android:fontFamily">@font/roboto_italic</item>
+    </style>
+    <style name="RobotoRegular">
+        <item name="android:fontFamily">@font/roboto_regular</item>
+    </style>
+</resources>

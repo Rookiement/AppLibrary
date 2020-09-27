@@ -11,12 +11,12 @@ import java.util.Locale;
 /**
  * @author reber
  */
-public class GenerateAdapterDimensTool {
+public class GenerateAdapterDimens {
 
     private final static int[] SW_VALUES = {384, 411};
     private final static int DEFAULT_SW_VALUE = 360;
 
-    private GenerateAdapterDimensTool() {
+    private GenerateAdapterDimens() {
         throw new ExceptionInInitializerError(
                 getClass().getSimpleName() + " can't created,this is a tool file.");
     }
@@ -33,8 +33,8 @@ public class GenerateAdapterDimensTool {
             return;
         }
         // 如果没有默认的Dimens.xml,不设置值
-        if (GenerateFileTool.fileExist(getDefaultDimensPath())) {
-            GenerateDefaultDimensTool.main(null);
+        if (!GenerateFileTool.fileExist(getDefaultDimensPath())) {
+            GenerateDefaultDimens.main(null);
         }
         // 读取默认的dimens.xml文件
         StringBuilder sBuilder = new StringBuilder();

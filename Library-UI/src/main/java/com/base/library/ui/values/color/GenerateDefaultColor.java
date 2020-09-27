@@ -45,7 +45,7 @@ public class GenerateDefaultColor {
         List<NameValueModel> mColors = getDefaultColors();
 
         // 如果没有默认的Dimens.xml,不设置值
-        if (GenerateFileTool.fileExist(GenerateFileTool.getDefaultResValuePath())) {
+        if (!GenerateFileTool.fileExist(GenerateFileTool.getDefaultResValuePath())) {
             return;
         }
 
