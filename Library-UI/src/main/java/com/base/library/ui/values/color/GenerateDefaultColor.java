@@ -6,8 +6,6 @@ import com.base.library.ui.values.NameValueModel;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.base.library.ui.values.GenerateFileTool.DEFAULT_RES_VALUE_PATH;
-
 /**
  * @author reber
  */
@@ -47,7 +45,7 @@ public class GenerateDefaultColor {
         List<NameValueModel> mColors = getDefaultColors();
 
         // 如果没有默认的Dimens.xml,不设置值
-        if (!GenerateFileTool.isFileExist(DEFAULT_RES_VALUE_PATH)) {
+        if (GenerateFileTool.fileExist(GenerateFileTool.getDefaultResValuePath())) {
             return;
         }
 
@@ -61,7 +59,7 @@ public class GenerateDefaultColor {
             }
         }
         String content = GenerateFileTool.getEndStringBuilder(sBuilder).toString();
-        GenerateFileTool.saveContentToFile(DEFAULT_RES_VALUE_PATH, "colors.xml", content);
+        GenerateFileTool.saveContentToFile(GenerateFileTool.getDefaultResValuePath(), "colors.xml", content);
     }
 
     /**

@@ -2,9 +2,6 @@ package com.base.library.ui.values.dimen;
 
 import com.base.library.ui.values.GenerateFileTool;
 
-import static com.base.library.ui.values.GenerateFileTool.DEFAULT_RES_VALUE_PATH;
-import static com.base.library.ui.values.GenerateFileTool.DIMENS_FILE_NAME;
-
 /**
  * @author reber
  * <p>
@@ -43,7 +40,8 @@ public class GenerateDefaultDimensTool {
         }
 
         String content = GenerateFileTool.getEndStringBuilder(sBuilder).toString();
-        GenerateFileTool.saveContentToFile(DEFAULT_RES_VALUE_PATH, DIMENS_FILE_NAME, content);
+        GenerateFileTool.saveContentToFile(GenerateFileTool.getDefaultResValuePath(),
+                GenerateFileTool.getDimensFileName(), content);
     }
 
     /**

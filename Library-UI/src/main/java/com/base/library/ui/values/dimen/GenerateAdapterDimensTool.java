@@ -8,18 +8,10 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.Locale;
 
-import static com.base.library.ui.values.GenerateFileTool.BASE_RES_PATH;
-import static com.base.library.ui.values.GenerateFileTool.DEFAULT_RES_VALUE_PATH;
-import static com.base.library.ui.values.GenerateFileTool.DIMENS_FILE_NAME;
-
 /**
  * @author reber
  */
 public class GenerateAdapterDimensTool {
-    /**
-     * 默认的dimens.xml文件路径
-     */
-    public final static String DEFAULT_DIMENS_PATH = DEFAULT_RES_VALUE_PATH + File.separator + DIMENS_FILE_NAME;
 
     private final static int[] SW_VALUES = {384, 411};
     private final static int DEFAULT_SW_VALUE = 360;
@@ -41,14 +33,14 @@ public class GenerateAdapterDimensTool {
             return;
         }
         // 如果没有默认的Dimens.xml,不设置值
-        if (!GenerateFileTool.isFileExist(DEFAULT_DIMENS_PATH)) {
+        if (GenerateFileTool.fileExist(getDefaultDimensPath())) {
             GenerateDefaultDimensTool.main(null);
         }
         // 读取默认的dimens.xml文件
         StringBuilder sBuilder = new StringBuilder();
         BufferedReader reader;
         try {
-            reader = new BufferedReader(new FileReader(new File(DEFAULT_DIMENS_PATH)));
+            reader = new BufferedReader(new FileReader(new File(getDefaultDimensPath())));
             while (true) {
                 String dimenLine = reader.readLine();
                 if (dimenLine.contains("</dimen>")) {
@@ -68,8 +60,8 @@ public class GenerateAdapterDimensTool {
                 }
             }
             // 格式如：values-sw300dp
-            String fileParentPath = BASE_RES_PATH + File.separator + getDimensAutoParentPath(swValue);
-            GenerateFileTool.saveContentToFile(fileParentPath, DIMENS_FILE_NAME, sBuilder.toString());
+            String fileParentPath = GenerateFileTool.getBaseResPath() + File.separator + getDimensAutoParentPath(swValue);
+            GenerateFileTool.saveContentToFile(fileParentPath, GenerateFileTool.getDimensFileName(), sBuilder.toString());
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -103,5 +95,12 @@ public class GenerateAdapterDimensTool {
     private static String getDimensAutoParentPath(int swValue) {
         // parent path: "../main/res/values-sw300dp"
         return "values-sw" + swValue + "dp";
+    }
+
+    /**
+     * 默认的dimens.xml文件路径
+     */
+    private static String getDefaultDimensPath() {
+        return GenerateFileTool.getDefaultResValuePath() + File.separator + GenerateFileTool.getDimensFileName();
     }
 }

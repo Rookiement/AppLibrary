@@ -10,10 +10,33 @@ import java.io.IOException;
  */
 public class GenerateFileTool {
 
-    public final static String BASE_RES_PATH = System.getProperty("user.dir") + "/Library-UI/src/main/res";
-    public final static String DEFAULT_RES_VALUE_PATH = BASE_RES_PATH + File.separator + "values";
+    public static String getBaseResPath() {
+        return System.getProperty("user.dir") + "/Library-UI/src/main/res";
+    }
 
-    public final static String DIMENS_FILE_NAME = "dimens.xml"; // dimens的文件名称
+    public static String getDefaultResValuePath() {
+        return System.getProperty("user.dir") + "/Library-UI/src/main/res" + File.separator + "values";
+    }
+
+    public static String getDimensFileName() {
+        return "dimens.xml";
+    }
+
+    public static String[] getLayoutArray() {
+        return new String[]{
+                "W_W", "W_M", "W_0",
+                "M_W", "M_M", "M_0",
+                "0_W", "0_M", "0_0"
+        };
+    }
+
+    public static String[] getFontColorArray() {
+        return new String[]{
+                "W_W", "W_M", "W_0",
+                "M_W", "M_M", "M_0",
+                "0_W", "0_M", "0_0"
+        };
+    }
 
     public static StringBuilder getStartStringBuilder() {
         return new StringBuilder()
@@ -32,8 +55,8 @@ public class GenerateFileTool {
     /**
      * values下的文件是否存在
      */
-    public static boolean isFileExist(String filePath) {
-        return new File(filePath).exists();
+    public static boolean fileExist(String filePath) {
+        return !new File(filePath).exists();
     }
 
     /**
