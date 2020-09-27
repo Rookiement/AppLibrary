@@ -20,6 +20,10 @@ public class GenerateFileTool {
         return System.getProperty("user.dir") + "/Library-UI/src/main/res" + File.separator + "values";
     }
 
+    public static String getColorFileName() {
+        return "colors.xml";
+    }
+
     public static String getDimensFileName() {
         return "dimens.xml";
     }
@@ -42,6 +46,23 @@ public class GenerateFileTool {
             default:
                 return "match_parent";
         }
+    }
+
+    public static String[] getFontSizeArray() {
+        return new String[]{
+                "8", "10", "12",
+                "14", "16", "18",
+                "20", "22", "24"
+        };
+    }
+
+    public static List<NameValueModel> getFontColorArray() {
+        List<NameValueModel> fontColorStyles = new ArrayList<>();
+        fontColorStyles.add(new NameValueModel("White", "appTextWhite"));
+        fontColorStyles.add(new NameValueModel("Black", "appTextBlack"));
+        fontColorStyles.add(new NameValueModel("Gray", "appTextGray"));
+        fontColorStyles.add(new NameValueModel("Red", "appTextRed"));
+        return fontColorStyles;
     }
 
     public static List<NameValueModel> getDefaultFontStyles() {

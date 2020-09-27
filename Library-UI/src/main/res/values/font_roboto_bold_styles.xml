@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="RobotoBold">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+    </style>
+    <style name="RobotoBold.White">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/appTextWhite</item>
+    </style>
+    <style name="RobotoBold.White.8">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/appTextWhite</item>
+        <item name="android:textSize">@dimen/sp_8</item>
+    </style>
+    <style name="RobotoBold.White.10">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/appTextWhite</item>
+        <item name="android:textSize">@dimen/sp_10</item>
+    </style>
+    <style name="RobotoBold.White.12">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/appTextWhite</item>
+        <item name="android:textSize">@dimen/sp_12</item>
+    </style>
+    <style name="RobotoBold.White.14">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/appTextWhite</item>
+        <item name="android:textSize">@dimen/sp_14</item>
+    </style>
+    <style name="RobotoBold.White.16">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/appTextWhite</item>
+        <item name="android:textSize">@dimen/sp_16</item>
+    </style>
+    <style name="RobotoBold.White.18">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/appTextWhite</item>
+        <item name="android:textSize">@dimen/sp_18</item>
+    </style>
+    <style name="RobotoBold.White.20">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/appTextWhite</item>
+        <item name="android:textSize">@dimen/sp_20</item>
+    </style>
+    <style name="RobotoBold.White.22">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/appTextWhite</item>
+        <item name="android:textSize">@dimen/sp_22</item>
+    </style>
+    <style name="RobotoBold.White.24">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/appTextWhite</item>
+        <item name="android:textSize">@dimen/sp_24</item>
+    </style>
+    <style name="RobotoBold.Black">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/appTextBlack</item>
+    </style>
+    <style name="RobotoBold.Black.8">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/appTextBlack</item>
+        <item name="android:textSize">@dimen/sp_8</item>
+    </style>
+    <style name="RobotoBold.Black.10">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/appTextBlack</item>
+        <item name="android:textSize">@dimen/sp_10</item>
+    </style>
+    <style name="RobotoBold.Black.12">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/appTextBlack</item>
+        <item name="android:textSize">@dimen/sp_12</item>
+    </style>
+    <style name="RobotoBold.Black.14">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/appTextBlack</item>
+        <item name="android:textSize">@dimen/sp_14</item>
+    </style>
+    <style name="RobotoBold.Black.16">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/appTextBlack</item>
+        <item name="android:textSize">@dimen/sp_16</item>
+    </style>
+    <style name="RobotoBold.Black.18">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/appTextBlack</item>
+        <item name="android:textSize">@dimen/sp_18</item>
+    </style>
+    <style name="RobotoBold.Black.20">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/appTextBlack</item>
+        <item name="android:textSize">@dimen/sp_20</item>
+    </style>
+    <style name="RobotoBold.Black.22">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/appTextBlack</item>
+        <item name="android:textSize">@dimen/sp_22</item>
+    </style>
+    <style name="RobotoBold.Black.24">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/appTextBlack</item>
+        <item name="android:textSize">@dimen/sp_24</item>
+    </style>
+    <style name="RobotoBold.Gray">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/appTextGray</item>
+    </style>
+    <style name="RobotoBold.Gray.8">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/appTextGray</item>
+        <item name="android:textSize">@dimen/sp_8</item>
+    </style>
+    <style name="RobotoBold.Gray.10">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/appTextGray</item>
+        <item name="android:textSize">@dimen/sp_10</item>
+    </style>
+    <style name="RobotoBold.Gray.12">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/appTextGray</item>
+        <item name="android:textSize">@dimen/sp_12</item>
+    </style>
+    <style name="RobotoBold.Gray.14">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/appTextGray</item>
+        <item name="android:textSize">@dimen/sp_14</item>
+    </style>
+    <style name="RobotoBold.Gray.16">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/appTextGray</item>
+        <item name="android:textSize">@dimen/sp_16</item>
+    </style>
+    <style name="RobotoBold.Gray.18">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/appTextGray</item>
+        <item name="android:textSize">@dimen/sp_18</item>
+    </style>
+    <style name="RobotoBold.Gray.20">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/appTextGray</item>
+        <item name="android:textSize">@dimen/sp_20</item>
+    </style>
+    <style name="RobotoBold.Gray.22">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/appTextGray</item>
+        <item name="android:textSize">@dimen/sp_22</item>
+    </style>
+    <style name="RobotoBold.Gray.24">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/appTextGray</item>
+        <item name="android:textSize">@dimen/sp_24</item>
+    </style>
+    <style name="RobotoBold.Red">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/appTextRed</item>
+    </style>
+    <style name="RobotoBold.Red.8">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/appTextRed</item>
+        <item name="android:textSize">@dimen/sp_8</item>
+    </style>
+    <style name="RobotoBold.Red.10">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/appTextRed</item>
+        <item name="android:textSize">@dimen/sp_10</item>
+    </style>
+    <style name="RobotoBold.Red.12">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/appTextRed</item>
+        <item name="android:textSize">@dimen/sp_12</item>
+    </style>
+    <style name="RobotoBold.Red.14">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/appTextRed</item>
+        <item name="android:textSize">@dimen/sp_14</item>
+    </style>
+    <style name="RobotoBold.Red.16">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/appTextRed</item>
+        <item name="android:textSize">@dimen/sp_16</item>
+    </style>
+    <style name="RobotoBold.Red.18">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/appTextRed</item>
+        <item name="android:textSize">@dimen/sp_18</item>
+    </style>
+    <style name="RobotoBold.Red.20">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/appTextRed</item>
+        <item name="android:textSize">@dimen/sp_20</item>
+    </style>
+    <style name="RobotoBold.Red.22">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/appTextRed</item>
+        <item name="android:textSize">@dimen/sp_22</item>
+    </style>
+    <style name="RobotoBold.Red.24">
+        <item name="android:fontFamily">@font/roboto_bold</item>
+        <item name="android:textColor">@color/appTextRed</item>
+        <item name="android:textSize">@dimen/sp_24</item>
+    </style>
+</resources>
