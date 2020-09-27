@@ -8,6 +8,9 @@ import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.SimpleItemAnimator;
 
+/**
+ * @author reber
+ */
 public class AppRecyclerView extends RecyclerView {
 
     public AppRecyclerView(@NonNull Context context) {
