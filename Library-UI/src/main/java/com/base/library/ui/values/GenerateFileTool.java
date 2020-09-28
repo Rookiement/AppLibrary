@@ -32,6 +32,10 @@ public class GenerateFileTool {
         return "layout_styles.xml";
     }
 
+    public static String getTextStyleFileName() {
+        return "text_styles.xml";
+    }
+
     public static String[] getLayoutArray() {
         return new String[]{
                 "W_W", "W_M", "W_0",

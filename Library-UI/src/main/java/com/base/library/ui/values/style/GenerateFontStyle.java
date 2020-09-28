@@ -37,6 +37,7 @@ public class GenerateFontStyle {
         final StringBuilder sBuilder = GenerateFileTool.getStartStringBuilder();
         String startContent = sBuilder.toString();
         List<NameValueModel> fontList = GenerateFileTool.getDefaultFontStyles();
+
         for (NameValueModel model : fontList) {
             sBuilder.setLength(0);
             sBuilder.append(startContent).append("\n\r");
@@ -57,7 +58,7 @@ public class GenerateFontStyle {
      * </style>
      */
     private static void insertFontItem(StringBuilder sBuilder, NameValueModel fontNameModel) {
-        // <style name="RobotoBold.White.18">
+        // <style name="RobotoBold">
         sBuilder
                 .append("    <style name=\"")
                 .append(fontNameModel.getName())
@@ -65,7 +66,6 @@ public class GenerateFontStyle {
                 .append("\n");
 
         // <item name="android:fontFamily">@font/roboto_bold</item>
-        // <item name="android:textColor">@color/appTextWhite</item>
         sBuilder.append("        <item name=\"android:fontFamily\">@font/")
                 .append(fontNameModel.getValue())
                 .append("</item>")
@@ -83,13 +83,12 @@ public class GenerateFontStyle {
 
     /**
      * <style name="RobotoBold.White">
-     * <item name="android:fontFamily">@font/roboto_bold</item>
      * <item name="android:textColor">@color/appTextWhite</item>
      * </style>
      */
     private static void insertFontColorItem(StringBuilder sBuilder, NameValueModel fontNameModel,
                                             NameValueModel fontColorModel) {
-        // <style name="RobotoBold.White.18">
+        // <style name="RobotoBold.White">
         sBuilder
                 .append("    <style name=\"")
                 .append(fontNameModel.getName())
@@ -98,7 +97,6 @@ public class GenerateFontStyle {
                 .append("\">")
                 .append("\n");
 
-        // <item name="android:fontFamily">@font/roboto_bold</item>
         // <item name="android:textColor">@color/appTextWhite</item>
         sBuilder
                 .append("        <item name=\"android:textColor\">@color/")
@@ -118,7 +116,6 @@ public class GenerateFontStyle {
 
     /**
      * <style name="RobotoBold.White.18">
-     * <item name="android:fontFamily">@font/roboto_bold</item>
      * <item name="android:textColor">@color/appTextWhite</item>
      * <item name="android:textSize">@dimen/sp_18</item>
      * </style>
@@ -136,7 +133,6 @@ public class GenerateFontStyle {
                 .append("\">")
                 .append("\n");
 
-        // <item name="android:fontFamily">@font/roboto_bold</item>
         // <item name="android:textColor">@color/appTextWhite</item>
         // <item name="android:textSize">@dimen/sp_18</item>
         sBuilder

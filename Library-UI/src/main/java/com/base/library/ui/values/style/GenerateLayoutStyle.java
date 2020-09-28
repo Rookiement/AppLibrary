@@ -19,8 +19,9 @@ public class GenerateLayoutStyle {
     private static void generateLayoutStyle() {
         String[] layoutArray = GenerateFileTool.getLayoutArray();
 
-        // 如果没有默认的Dimens.xml,不设置值
+        // 如果没有默认的values目录,不设置值
         if (!GenerateFileTool.isFileExist(GenerateFileTool.getDefaultResValuePath())) {
+            System.out.println("--------------请先创建values目录--------------");
             return;
         }
 
