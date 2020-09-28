@@ -4,198 +4,158 @@
         <item name="android:fontFamily">@font/roboto_italic</item>
     </style>
     <style name="RobotoItalic.White">
-        <item name="android:fontFamily">@font/roboto_italic</item>
         <item name="android:textColor">@color/appTextWhite</item>
     </style>
     <style name="RobotoItalic.White.8">
-        <item name="android:fontFamily">@font/roboto_italic</item>
         <item name="android:textColor">@color/appTextWhite</item>
         <item name="android:textSize">@dimen/sp_8</item>
     </style>
     <style name="RobotoItalic.White.10">
-        <item name="android:fontFamily">@font/roboto_italic</item>
         <item name="android:textColor">@color/appTextWhite</item>
         <item name="android:textSize">@dimen/sp_10</item>
     </style>
     <style name="RobotoItalic.White.12">
-        <item name="android:fontFamily">@font/roboto_italic</item>
         <item name="android:textColor">@color/appTextWhite</item>
         <item name="android:textSize">@dimen/sp_12</item>
     </style>
     <style name="RobotoItalic.White.14">
-        <item name="android:fontFamily">@font/roboto_italic</item>
         <item name="android:textColor">@color/appTextWhite</item>
         <item name="android:textSize">@dimen/sp_14</item>
     </style>
     <style name="RobotoItalic.White.16">
-        <item name="android:fontFamily">@font/roboto_italic</item>
         <item name="android:textColor">@color/appTextWhite</item>
         <item name="android:textSize">@dimen/sp_16</item>
     </style>
     <style name="RobotoItalic.White.18">
-        <item name="android:fontFamily">@font/roboto_italic</item>
         <item name="android:textColor">@color/appTextWhite</item>
         <item name="android:textSize">@dimen/sp_18</item>
     </style>
     <style name="RobotoItalic.White.20">
-        <item name="android:fontFamily">@font/roboto_italic</item>
         <item name="android:textColor">@color/appTextWhite</item>
         <item name="android:textSize">@dimen/sp_20</item>
     </style>
     <style name="RobotoItalic.White.22">
-        <item name="android:fontFamily">@font/roboto_italic</item>
         <item name="android:textColor">@color/appTextWhite</item>
         <item name="android:textSize">@dimen/sp_22</item>
     </style>
     <style name="RobotoItalic.White.24">
-        <item name="android:fontFamily">@font/roboto_italic</item>
         <item name="android:textColor">@color/appTextWhite</item>
         <item name="android:textSize">@dimen/sp_24</item>
     </style>
     <style name="RobotoItalic.Black">
-        <item name="android:fontFamily">@font/roboto_italic</item>
         <item name="android:textColor">@color/appTextBlack</item>
     </style>
     <style name="RobotoItalic.Black.8">
-        <item name="android:fontFamily">@font/roboto_italic</item>
         <item name="android:textColor">@color/appTextBlack</item>
         <item name="android:textSize">@dimen/sp_8</item>
     </style>
     <style name="RobotoItalic.Black.10">
-        <item name="android:fontFamily">@font/roboto_italic</item>
         <item name="android:textColor">@color/appTextBlack</item>
         <item name="android:textSize">@dimen/sp_10</item>
     </style>
     <style name="RobotoItalic.Black.12">
-        <item name="android:fontFamily">@font/roboto_italic</item>
         <item name="android:textColor">@color/appTextBlack</item>
         <item name="android:textSize">@dimen/sp_12</item>
     </style>
     <style name="RobotoItalic.Black.14">
-        <item name="android:fontFamily">@font/roboto_italic</item>
         <item name="android:textColor">@color/appTextBlack</item>
         <item name="android:textSize">@dimen/sp_14</item>
     </style>
     <style name="RobotoItalic.Black.16">
-        <item name="android:fontFamily">@font/roboto_italic</item>
         <item name="android:textColor">@color/appTextBlack</item>
         <item name="android:textSize">@dimen/sp_16</item>
     </style>
     <style name="RobotoItalic.Black.18">
-        <item name="android:fontFamily">@font/roboto_italic</item>
         <item name="android:textColor">@color/appTextBlack</item>
         <item name="android:textSize">@dimen/sp_18</item>
     </style>
     <style name="RobotoItalic.Black.20">
-        <item name="android:fontFamily">@font/roboto_italic</item>
         <item name="android:textColor">@color/appTextBlack</item>
         <item name="android:textSize">@dimen/sp_20</item>
     </style>
     <style name="RobotoItalic.Black.22">
-        <item name="android:fontFamily">@font/roboto_italic</item>
         <item name="android:textColor">@color/appTextBlack</item>
         <item name="android:textSize">@dimen/sp_22</item>
     </style>
     <style name="RobotoItalic.Black.24">
-        <item name="android:fontFamily">@font/roboto_italic</item>
         <item name="android:textColor">@color/appTextBlack</item>
         <item name="android:textSize">@dimen/sp_24</item>
     </style>
     <style name="RobotoItalic.Gray">
-        <item name="android:fontFamily">@font/roboto_italic</item>
         <item name="android:textColor">@color/appTextGray</item>
     </style>
     <style name="RobotoItalic.Gray.8">
-        <item name="android:fontFamily">@font/roboto_italic</item>
         <item name="android:textColor">@color/appTextGray</item>
         <item name="android:textSize">@dimen/sp_8</item>
     </style>
     <style name="RobotoItalic.Gray.10">
-        <item name="android:fontFamily">@font/roboto_italic</item>
         <item name="android:textColor">@color/appTextGray</item>
         <item name="android:textSize">@dimen/sp_10</item>
     </style>
     <style name="RobotoItalic.Gray.12">
-        <item name="android:fontFamily">@font/roboto_italic</item>
         <item name="android:textColor">@color/appTextGray</item>
         <item name="android:textSize">@dimen/sp_12</item>
     </style>
     <style name="RobotoItalic.Gray.14">
-        <item name="android:fontFamily">@font/roboto_italic</item>
         <item name="android:textColor">@color/appTextGray</item>
         <item name="android:textSize">@dimen/sp_14</item>
     </style>
     <style name="RobotoItalic.Gray.16">
-        <item name="android:fontFamily">@font/roboto_italic</item>
         <item name="android:textColor">@color/appTextGray</item>
         <item name="android:textSize">@dimen/sp_16</item>
     </style>
     <style name="RobotoItalic.Gray.18">
-        <item name="android:fontFamily">@font/roboto_italic</item>
         <item name="android:textColor">@color/appTextGray</item>
         <item name="android:textSize">@dimen/sp_18</item>
     </style>
     <style name="RobotoItalic.Gray.20">
-        <item name="android:fontFamily">@font/roboto_italic</item>
         <item name="android:textColor">@color/appTextGray</item>
         <item name="android:textSize">@dimen/sp_20</item>
     </style>
     <style name="RobotoItalic.Gray.22">
-        <item name="android:fontFamily">@font/roboto_italic</item>
         <item name="android:textColor">@color/appTextGray</item>
         <item name="android:textSize">@dimen/sp_22</item>
     </style>
     <style name="RobotoItalic.Gray.24">
-        <item name="android:fontFamily">@font/roboto_italic</item>
         <item name="android:textColor">@color/appTextGray</item>
         <item name="android:textSize">@dimen/sp_24</item>
     </style>
     <style name="RobotoItalic.Red">
-        <item name="android:fontFamily">@font/roboto_italic</item>
         <item name="android:textColor">@color/appTextRed</item>
     </style>
     <style name="RobotoItalic.Red.8">
-        <item name="android:fontFamily">@font/roboto_italic</item>
         <item name="android:textColor">@color/appTextRed</item>
         <item name="android:textSize">@dimen/sp_8</item>
     </style>
     <style name="RobotoItalic.Red.10">
-        <item name="android:fontFamily">@font/roboto_italic</item>
         <item name="android:textColor">@color/appTextRed</item>
         <item name="android:textSize">@dimen/sp_10</item>
     </style>
     <style name="RobotoItalic.Red.12">
-        <item name="android:fontFamily">@font/roboto_italic</item>
         <item name="android:textColor">@color/appTextRed</item>
         <item name="android:textSize">@dimen/sp_12</item>
     </style>
     <style name="RobotoItalic.Red.14">
-        <item name="android:fontFamily">@font/roboto_italic</item>
         <item name="android:textColor">@color/appTextRed</item>
         <item name="android:textSize">@dimen/sp_14</item>
     </style>
     <style name="RobotoItalic.Red.16">
-        <item name="android:fontFamily">@font/roboto_italic</item>
         <item name="android:textColor">@color/appTextRed</item>
         <item name="android:textSize">@dimen/sp_16</item>
     </style>
     <style name="RobotoItalic.Red.18">
-        <item name="android:fontFamily">@font/roboto_italic</item>
         <item name="android:textColor">@color/appTextRed</item>
         <item name="android:textSize">@dimen/sp_18</item>
     </style>
     <style name="RobotoItalic.Red.20">
-        <item name="android:fontFamily">@font/roboto_italic</item>
         <item name="android:textColor">@color/appTextRed</item>
         <item name="android:textSize">@dimen/sp_20</item>
     </style>
     <style name="RobotoItalic.Red.22">
-        <item name="android:fontFamily">@font/roboto_italic</item>
         <item name="android:textColor">@color/appTextRed</item>
         <item name="android:textSize">@dimen/sp_22</item>
     </style>
     <style name="RobotoItalic.Red.24">
-        <item name="android:fontFamily">@font/roboto_italic</item>
         <item name="android:textColor">@color/appTextRed</item>
         <item name="android:textSize">@dimen/sp_24</item>
     </style>

@@ -20,7 +20,7 @@ public class GenerateLayoutStyle {
         String[] layoutArray = GenerateFileTool.getLayoutArray();
 
         // 如果没有默认的Dimens.xml,不设置值
-        if (!GenerateFileTool.fileExist(GenerateFileTool.getDefaultResValuePath())) {
+        if (!GenerateFileTool.isFileExist(GenerateFileTool.getDefaultResValuePath())) {
             return;
         }
 
@@ -35,7 +35,8 @@ public class GenerateLayoutStyle {
         }
         sBuilder.append("\n");
         String content = GenerateFileTool.getEndStringBuilder(sBuilder).toString();
-        GenerateFileTool.saveContentToFile(GenerateFileTool.getDefaultResValuePath(), "layout_styles.xml", content);
+        GenerateFileTool.saveContentToFile(GenerateFileTool.getDefaultResValuePath(),
+                GenerateFileTool.getLayoutStyleFileName(), content);
     }
 
     /**

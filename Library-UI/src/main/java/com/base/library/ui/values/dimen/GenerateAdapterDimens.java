@@ -33,7 +33,7 @@ public class GenerateAdapterDimens {
             return;
         }
         // 如果没有默认的Dimens.xml,不设置值
-        if (!GenerateFileTool.fileExist(getDefaultDimensPath())) {
+        if (!GenerateFileTool.isFileExist(getDefaultDimensPath())) {
             GenerateDefaultDimens.main(null);
         }
         // 读取默认的dimens.xml文件

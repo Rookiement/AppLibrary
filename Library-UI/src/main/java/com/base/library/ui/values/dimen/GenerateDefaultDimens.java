@@ -22,8 +22,9 @@ public class GenerateDefaultDimens {
     }
 
     private static void generateDefaultDimens(int dpCount, int spCount, int spStartValue) {
-        // 如果没有默认的Dimens.xml,不设置值
-        if (!GenerateFileTool.fileExist(GenerateFileTool.getDefaultResValuePath())) {
+        // 如果没有默认的values目录,不设置值
+        if (!GenerateFileTool.isFileExist(GenerateFileTool.getDefaultResValuePath())) {
+            System.out.println("--------------请先创建values目录--------------");
             return;
         }
 

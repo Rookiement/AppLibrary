@@ -15,7 +15,7 @@ public class GenerateDefaultColor {
 
     private GenerateDefaultColor() {
         throw new ExceptionInInitializerError(
-                "GenerateAutoColorsTool can't created,this is a tool for generating dimens.xml file");
+                getClass().getSimpleName() + " can't created,this is a tool file.");
     }
 
     public static void main(String[] args) {
@@ -44,8 +44,9 @@ public class GenerateDefaultColor {
     private static void generateDefaultColor() {
         List<NameValueModel> mColors = getDefaultColors();
 
-        // 如果没有默认的Dimens.xml,不设置值
-        if (!GenerateFileTool.fileExist(GenerateFileTool.getDefaultResValuePath())) {
+        // 如果没有默认的values目录,不设置值
+        if (!GenerateFileTool.isFileExist(GenerateFileTool.getDefaultResValuePath())) {
+            System.out.println("--------------请先创建values目录--------------");
             return;
         }
 
@@ -59,7 +60,7 @@ public class GenerateDefaultColor {
             }
         }
         String content = GenerateFileTool.getEndStringBuilder(sBuilder).toString();
-        GenerateFileTool.saveContentToFile(GenerateFileTool.getDefaultResValuePath(), "colors.xml", content);
+        GenerateFileTool.saveContentToFile(GenerateFileTool.getDefaultResValuePath(), GenerateFileTool.getColorFileName(), content);
     }
 
     /**

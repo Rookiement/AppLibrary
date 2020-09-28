@@ -28,6 +28,10 @@ public class GenerateFileTool {
         return "dimens.xml";
     }
 
+    public static String getLayoutStyleFileName() {
+        return "layout_styles.xml";
+    }
+
     public static String[] getLayoutArray() {
         return new String[]{
                 "W_W", "W_M", "W_0",
@@ -90,7 +94,7 @@ public class GenerateFileTool {
     /**
      * values下的文件是否存在
      */
-    public static boolean fileExist(String filePath) {
+    public static boolean isFileExist(String filePath) {
         return new File(filePath).exists();
     }
 

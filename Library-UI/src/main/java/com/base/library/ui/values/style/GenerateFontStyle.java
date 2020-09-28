@@ -6,6 +6,9 @@ import com.base.library.ui.values.NameValueModel;
 import java.io.File;
 import java.util.List;
 
+/**
+ * @author reber
+ */
 public class GenerateFontStyle {
 
     private GenerateFontStyle() {
@@ -19,8 +22,15 @@ public class GenerateFontStyle {
 
     private static void generateFontStyles() {
         // 如果没有默认的values目录,不设置值
-        if (!GenerateFileTool.fileExist(GenerateFileTool.getDefaultResValuePath())) {
+        if (!GenerateFileTool.isFileExist(GenerateFileTool.getDefaultResValuePath())) {
             System.out.println("--------------请先创建values目录--------------");
+            return;
+        }
+
+        // 如果没有默认的color.xml,不设置值
+        if (!GenerateFileTool.isFileExist(GenerateFileTool.getDefaultResValuePath() +
+                File.separator + GenerateFileTool.getColorFileName())) {
+            System.out.println("--------------请在color.xml中先生成需要的color--------------");
             return;
         }
 
@@ -64,12 +74,6 @@ public class GenerateFontStyle {
         // </style>
         sBuilder.append("    </style>");
 
-        // 如果没有默认的color.xml,不设置值
-        if (!GenerateFileTool.fileExist(GenerateFileTool.getDefaultResValuePath() +
-                File.separator + GenerateFileTool.getColorFileName())) {
-            System.out.println("--------------请在color.xml中先生成需要的color--------------");
-            return;
-        }
         List<NameValueModel> fontColorList = GenerateFileTool.getFontColorArray();
         for (NameValueModel model : fontColorList) {
             sBuilder.append("\n\r");
@@ -96,10 +100,7 @@ public class GenerateFontStyle {
 
         // <item name="android:fontFamily">@font/roboto_bold</item>
         // <item name="android:textColor">@color/appTextWhite</item>
-        sBuilder.append("        <item name=\"android:fontFamily\">@font/")
-                .append(fontNameModel.getValue())
-                .append("</item>")
-                .append("\n")
+        sBuilder
                 .append("        <item name=\"android:textColor\">@color/")
                 .append(fontColorModel.getValue())
                 .append("</item>")
@@ -138,10 +139,7 @@ public class GenerateFontStyle {
         // <item name="android:fontFamily">@font/roboto_bold</item>
         // <item name="android:textColor">@color/appTextWhite</item>
         // <item name="android:textSize">@dimen/sp_18</item>
-        sBuilder.append("        <item name=\"android:fontFamily\">@font/")
-                .append(fontNameModel.getValue())
-                .append("</item>")
-                .append("\n")
+        sBuilder
                 .append("        <item name=\"android:textColor\">@color/")
                 .append(fontColorModel.getValue())
                 .append("</item>")

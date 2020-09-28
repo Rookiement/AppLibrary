@@ -12,11 +12,10 @@ import com.library.test.R;
 /**
  * @author reber
  */
-public class ValueColorActivity extends BaseAppActivity {
-
+public class ValueFontActivity extends BaseAppActivity {
     @Override
     protected int getLayoutId() {
-        return R.layout.activity_value_color;
+        return R.layout.activity_value_font;
     }
 
     @Override
