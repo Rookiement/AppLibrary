@@ -16,10 +16,9 @@ public class ViewTestUtil {
 
     public static View generateItemView(Context context, int type, String content) {
         AppCompatTextView textView = new AppCompatTextView(context);
-        mLayoutParams.setMargins(20, 20, 20, 20);
+        textView.setPadding(20, 20, 20, 20);
         textView.setLayoutParams(mLayoutParams);
-        textView.setTag(type);
-        textView.setTextAppearance(context, R.style.RobotoBold_Black_16);
+        textView.setTextAppearance(context, R.style.RobotoBold_Red_18);
         textView.setText(content);
         return textView;
     }

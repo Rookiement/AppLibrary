@@ -1,124 +1,165 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <style name="TextStyle" />
-    <style name="TextStyle.White">
+
+    <style name="TextStyle" />
+
+    <style name="TextStyle.White">
         <item name="android:textColor">@color/appTextWhite</item>
     </style>
-    <style name="TextStyle.White.8">
+
+    <style name="TextStyle.White.8">
         <item name="android:textSize">@dimen/sp_8</item>
     </style>
-    <style name="TextStyle.White.10">
+
+    <style name="TextStyle.White.10">
         <item name="android:textSize">@dimen/sp_10</item>
     </style>
-    <style name="TextStyle.White.12">
+
+    <style name="TextStyle.White.12">
         <item name="android:textSize">@dimen/sp_12</item>
     </style>
-    <style name="TextStyle.White.14">
+
+    <style name="TextStyle.White.14">
         <item name="android:textSize">@dimen/sp_14</item>
     </style>
-    <style name="TextStyle.White.16">
+
+    <style name="TextStyle.White.16">
         <item name="android:textSize">@dimen/sp_16</item>
     </style>
-    <style name="TextStyle.White.18">
+
+    <style name="TextStyle.White.18">
         <item name="android:textSize">@dimen/sp_18</item>
     </style>
-    <style name="TextStyle.White.20">
+
+    <style name="TextStyle.White.20">
         <item name="android:textSize">@dimen/sp_20</item>
     </style>
-    <style name="TextStyle.White.22">
+
+    <style name="TextStyle.White.22">
         <item name="android:textSize">@dimen/sp_22</item>
     </style>
-    <style name="TextStyle.White.24">
+
+    <style name="TextStyle.White.24">
         <item name="android:textSize">@dimen/sp_24</item>
     </style>
-    <style name="TextStyle.Black">
+
+    <style name="TextStyle.Black">
         <item name="android:textColor">@color/appTextBlack</item>
     </style>
-    <style name="TextStyle.Black.8">
+
+    <style name="TextStyle.Black.8">
         <item name="android:textSize">@dimen/sp_8</item>
     </style>
-    <style name="TextStyle.Black.10">
+
+    <style name="TextStyle.Black.10">
         <item name="android:textSize">@dimen/sp_10</item>
     </style>
-    <style name="TextStyle.Black.12">
+
+    <style name="TextStyle.Black.12">
         <item name="android:textSize">@dimen/sp_12</item>
     </style>
-    <style name="TextStyle.Black.14">
+
+    <style name="TextStyle.Black.14">
         <item name="android:textSize">@dimen/sp_14</item>
     </style>
-    <style name="TextStyle.Black.16">
+
+    <style name="TextStyle.Black.16">
         <item name="android:textSize">@dimen/sp_16</item>
     </style>
-    <style name="TextStyle.Black.18">
+
+    <style name="TextStyle.Black.18">
         <item name="android:textSize">@dimen/sp_18</item>
     </style>
-    <style name="TextStyle.Black.20">
+
+    <style name="TextStyle.Black.20">
         <item name="android:textSize">@dimen/sp_20</item>
     </style>
-    <style name="TextStyle.Black.22">
+
+    <style name="TextStyle.Black.22">
         <item name="android:textSize">@dimen/sp_22</item>
     </style>
-    <style name="TextStyle.Black.24">
+
+    <style name="TextStyle.Black.24">
         <item name="android:textSize">@dimen/sp_24</item>
     </style>
-    <style name="TextStyle.Gray">
+
+    <style name="TextStyle.Gray">
         <item name="android:textColor">@color/appTextGray</item>
     </style>
-    <style name="TextStyle.Gray.8">
+
+    <style name="TextStyle.Gray.8">
         <item name="android:textSize">@dimen/sp_8</item>
     </style>
-    <style name="TextStyle.Gray.10">
+
+    <style name="TextStyle.Gray.10">
         <item name="android:textSize">@dimen/sp_10</item>
     </style>
-    <style name="TextStyle.Gray.12">
+
+    <style name="TextStyle.Gray.12">
         <item name="android:textSize">@dimen/sp_12</item>
     </style>
-    <style name="TextStyle.Gray.14">
+
+    <style name="TextStyle.Gray.14">
         <item name="android:textSize">@dimen/sp_14</item>
     </style>
-    <style name="TextStyle.Gray.16">
+
+    <style name="TextStyle.Gray.16">
         <item name="android:textSize">@dimen/sp_16</item>
     </style>
-    <style name="TextStyle.Gray.18">
+
+    <style name="TextStyle.Gray.18">
         <item name="android:textSize">@dimen/sp_18</item>
     </style>
-    <style name="TextStyle.Gray.20">
+
+    <style name="TextStyle.Gray.20">
         <item name="android:textSize">@dimen/sp_20</item>
     </style>
-    <style name="TextStyle.Gray.22">
+
+    <style name="TextStyle.Gray.22">
         <item name="android:textSize">@dimen/sp_22</item>
     </style>
-    <style name="TextStyle.Gray.24">
+
+    <style name="TextStyle.Gray.24">
         <item name="android:textSize">@dimen/sp_24</item>
     </style>
-    <style name="TextStyle.Red">
+
+    <style name="TextStyle.Red">
         <item name="android:textColor">@color/appTextRed</item>
     </style>
-    <style name="TextStyle.Red.8">
+
+    <style name="TextStyle.Red.8">
         <item name="android:textSize">@dimen/sp_8</item>
     </style>
-    <style name="TextStyle.Red.10">
+
+    <style name="TextStyle.Red.10">
         <item name="android:textSize">@dimen/sp_10</item>
     </style>
-    <style name="TextStyle.Red.12">
+
+    <style name="TextStyle.Red.12">
         <item name="android:textSize">@dimen/sp_12</item>
     </style>
-    <style name="TextStyle.Red.14">
+
+    <style name="TextStyle.Red.14">
         <item name="android:textSize">@dimen/sp_14</item>
     </style>
-    <style name="TextStyle.Red.16">
+
+    <style name="TextStyle.Red.16">
         <item name="android:textSize">@dimen/sp_16</item>
     </style>
-    <style name="TextStyle.Red.18">
+
+    <style name="TextStyle.Red.18">
         <item name="android:textSize">@dimen/sp_18</item>
     </style>
-    <style name="TextStyle.Red.20">
+
+    <style name="TextStyle.Red.20">
         <item name="android:textSize">@dimen/sp_20</item>
     </style>
-    <style name="TextStyle.Red.22">
+
+    <style name="TextStyle.Red.22">
         <item name="android:textSize">@dimen/sp_22</item>
     </style>
-    <style name="TextStyle.Red.24">
+
+    <style name="TextStyle.Red.24">
         <item name="android:textSize">@dimen/sp_24</item>
     </style>
 </resources>

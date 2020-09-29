@@ -19,6 +19,8 @@
 
         <activity android:name=".ui.values.ValueColorActivity" />
         <activity android:name=".ui.values.ValueFontActivity" />
+
+        <activity android:name=".ui.flow.AppFlowActivity" />
     </application>
 
 </manifest>

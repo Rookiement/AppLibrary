@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/Layout.MW"
+    android:orientation="vertical">
+
+    <com.base.library.ui.flow.AppFlowLayout
+        android:id="@+id/flow_layout"
+        style="@style/Layout.MW"
+        app:horizontalSpacing="@dimen/dp_10"
+        app:verticalSpacing="@dimen/dp_10" />
+
+    <com.base.library.ui.flow.AppDirectionFlowLayout
+        android:id="@+id/flow_direction_layout"
+        style="@style/Layout.MW"
+        android:layout_marginTop="50dp"
+        app:horizontalSpacing="@dimen/dp_10"
+        app:verticalSpacing="@dimen/dp_10" />
+</LinearLayout>
