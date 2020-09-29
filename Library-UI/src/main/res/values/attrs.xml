@@ -11,4 +11,8 @@
             <enum name="right" value="1" />
         </attr>
     </declare-styleable>
+
+    <declare-styleable name="AppRefreshLayout">
+        <attr name="ProgressSpinnerBackgroundColor" format="color" />
+    </declare-styleable>
 </resources>

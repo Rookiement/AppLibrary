@@ -33,7 +33,6 @@ dependencies {
     implementation "androidx.appcompat:appcompat:$gradle.androidxAppcompat"
     implementation "androidx.constraintlayout:constraintlayout:$gradle.androidxConstraintlayout"
     implementation "androidx.recyclerview:recyclerview:$gradle.androidxRecyclerView"
-    implementation "androidx.swiperefreshlayout:swiperefreshlayout:$gradle.androidxSwipeRefresh"
 
     testImplementation "junit:junit:$gradle.androidxJunit"
     androidTestImplementation "androidx.test.ext:junit:$gradle.androidxTestJunit"
