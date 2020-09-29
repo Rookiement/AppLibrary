@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/Layout.MW"
+    android:orientation="vertical"
+    tools:ignore="HardcodedText">
+
+    <TextView
+        style="@style/Layout.MW"
+        android:lineSpacingExtra="@dimen/dp_10"
+        android:text="首先，我采取随机按钮我的数组并为此我想设置与 R.drawable.williboese 背景图像。
+所以在我的25键我有比其他人不同的背景图片。这一次我一定要找到并比别人的反应不同..."
+        android:textAppearance="@style/RobotoRegular.Gray.16" />
+
+    <TextView
+        style="@style/Layout.MW"
+        android:layout_marginTop="@dimen/dp_10"
+        android:gravity="center"
+        android:lineSpacingExtra="@dimen/dp_10"
+        android:text="it's come over"
+        android:textAppearance="@style/RobotoRegular.Red.20" />
+</LinearLayout>
