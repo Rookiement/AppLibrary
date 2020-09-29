@@ -26,6 +26,8 @@
         <activity android:name=".ui.recycler.RecyclerLinearDecorationActivity" />
         <activity android:name=".ui.recycler.RecyclerGridDecorationActivity" />
         <activity android:name=".ui.recycler.RecyclerMultiActivity" />
+
+        <activity android:name=".ui.refresh.AppRefreshActivity" />
     </application>
 
 </manifest>
