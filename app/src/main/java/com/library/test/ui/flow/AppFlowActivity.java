@@ -26,11 +26,11 @@ public class AppFlowActivity extends BaseAppActivity {
     @Override
     protected void onInitCreateWithState(@NonNull AppViewHelper viewHelper, @Nullable Bundle savedInstanceState) {
         AppFlowLayout<String> flowLayout = viewHelper.findViewById(R.id.flow_layout);
-        flowLayout.setFlowHelper(new DefaultFlowHelper());
-        flowLayout.addFlowItems(getFlowItemList());
+        flowLayout.setFlowHelper(new TestFlowHelper());
+//        flowLayout.addFlowItems(getFlowItemList());
 
         AppFlowLayout<String> flowDirectionLayout = viewHelper.findViewById(R.id.flow_direction_layout);
-        flowDirectionLayout.setFlowHelper(new DefaultFlowHelper());
+//        flowDirectionLayout.setFlowHelper(new AppDefaultFlowHelper<String>());
         flowDirectionLayout.addFlowItems(getFlowItemList());
     }
 

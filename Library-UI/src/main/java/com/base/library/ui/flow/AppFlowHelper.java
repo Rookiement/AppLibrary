@@ -23,15 +23,19 @@ public abstract class AppFlowHelper<T> {
         return itemView;
     }
 
+
+    public ViewGroup.MarginLayoutParams getDefaultLayoutParam() {
+        if (this.mItemLayoutParams == null) {
+            this.mItemLayoutParams = new ViewGroup.MarginLayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,
+                    ViewGroup.LayoutParams.WRAP_CONTENT);
+        }
+        return mItemLayoutParams;
+    }
+
     @LayoutRes
     protected abstract int getFlowItemLayoutId();
 
     public abstract void onInitItemView(View itemView, T item);
 
-    public ViewGroup.MarginLayoutParams getDefaultLayoutParam() {
-        if (this.mItemLayoutParams == null) {
-            this.mItemLayoutParams = new ViewGroup.MarginLayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        }
-        return mItemLayoutParams;
-    }
+    public abstract void onItemClickIndexChanged(View itemView, boolean selected);
 }

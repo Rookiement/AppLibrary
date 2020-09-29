@@ -12,7 +12,9 @@ import androidx.core.view.ViewCompat;
 import com.base.library.ui.R;
 import com.base.library.ui.delegate.OnAppClickListener;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 /**
  * @author reber
@@ -26,7 +28,9 @@ public class AppFlowLayout<T> extends ViewGroup implements View.OnClickListener 
     private int mMaxSelectedCount;   // -1 不限制
 
     private AppFlowHelper<T> mFlowHelper;
-    private OnAppClickListener mClickListener;
+    private View.OnClickListener mListener;
+    private List<Integer> mSelectedItemIndexList;
+    private OnFlowItemClickListener mItemClickListener;
 
     public AppFlowLayout(Context context) {
         this(context, null);
@@ -53,26 +57,45 @@ public class AppFlowLayout<T> extends ViewGroup implements View.OnClickListener 
 
     @Override
     public void onClick(View v) {
-
+        Object tag = getTag();
+        if (tag == null) {
+            return;
+        }
+        Integer index = (Integer) tag;
+        List<Integer> itemIndexList = getSelectedItemIndexList();
+        if (itemIndexList.contains(index)) {
+            itemIndexList.remove(index);
+            getFlowHelper().onItemClickIndexChanged(v, false);
+        } else {
+            itemIndexList.add(index);
+            getFlowHelper().onItemClickIndexChanged(v, true);
+            if (mItemClickListener != null) {
+                mItemClickListener.onFlowItemSelectedClick(index);
+            }
+            if (mMaxSelectedCount != -1 && itemIndexList.size() > mMaxSelectedCount) {
+                View cancelSelectedItemView = getChildAt(itemIndexList.get(0));
+                getFlowHelper().onItemClickIndexChanged(cancelSelectedItemView, false);
+            }
+        }
     }
 
-    protected int getHorizontalSpacing() {
+    public int getHorizontalSpacing() {
         return this.mHorizontalSpacing;
     }
 
-    protected void setHorizontalSpacing(int lineSpacing) {
+    public void setHorizontalSpacing(int lineSpacing) {
         this.mHorizontalSpacing = lineSpacing;
     }
 
-    protected int getVerticalSpacing() {
+    public int getVerticalSpacing() {
         return this.mVerticalSpacing;
     }
 
-    protected void setVerticalSpacing(int itemSpacing) {
+    public void setVerticalSpacing(int itemSpacing) {
         this.mVerticalSpacing = itemSpacing;
     }
 
-    protected boolean isFlowSingleLine() {
+    public boolean isFlowSingleLine() {
         return this.mFlowSingleLine;
     }
 
@@ -88,11 +111,15 @@ public class AppFlowLayout<T> extends ViewGroup implements View.OnClickListener 
         return mMaxSelectedCount;
     }
 
-    public OnAppClickListener getClickListener() {
-        if (mClickListener == null) {
-            mClickListener = new OnAppClickListener(this);
+    public View.OnClickListener getClickListener() {
+        if (mListener == null) {
+            mListener = new OnAppClickListener(this);
         }
-        return mClickListener;
+        return mListener;
+    }
+
+    public void setItemClickListener(OnFlowItemClickListener itemClickListener) {
+        this.mItemClickListener = itemClickListener;
     }
 
     public void setFlowHelper(AppFlowHelper<T> mFlowHelper) {
@@ -100,7 +127,17 @@ public class AppFlowLayout<T> extends ViewGroup implements View.OnClickListener 
     }
 
     public AppFlowHelper<T> getFlowHelper() {
+        if (mFlowHelper == null) {
+            mFlowHelper = new AppDefaultFlowHelper<>();
+        }
         return mFlowHelper;
+    }
+
+    public List<Integer> getSelectedItemIndexList() {
+        if (mSelectedItemIndexList == null) {
+            mSelectedItemIndexList = new ArrayList<>();
+        }
+        return mSelectedItemIndexList;
     }
 
     public void addFlowItem(int index, T t) {
@@ -111,12 +148,18 @@ public class AppFlowLayout<T> extends ViewGroup implements View.OnClickListener 
     }
 
     public void addFlowItems(T[] items) {
+        if (getChildCount() > 0) {
+            removeAllViews();
+        }
         for (int i = 0; i < items.length; i++) {
             addFlowItem(i, items[i]);
         }
     }
 
     public void addFlowItems(List<T> items) {
+        if (getChildCount() > 0) {
+            removeAllViews();
+        }
         for (int i = 0; i < items.size(); i++) {
             addFlowItem(i, items.get(i));
         }
@@ -221,5 +264,9 @@ public class AppFlowLayout<T> extends ViewGroup implements View.OnClickListener 
                 }
             }
         }
+    }
+
+    public interface OnFlowItemClickListener {
+        void onFlowItemSelectedClick(int position);
     }
 }
