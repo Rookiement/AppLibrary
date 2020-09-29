@@ -21,6 +21,11 @@
         <activity android:name=".ui.values.ValueFontActivity" />
 
         <activity android:name=".ui.flow.AppFlowActivity" />
+
+        <activity android:name=".ui.recycler.AppRecyclerActivity" />
+        <activity android:name=".ui.recycler.RecyclerLinearDecorationActivity" />
+        <activity android:name=".ui.recycler.RecyclerGridDecorationActivity" />
+        <activity android:name=".ui.recycler.RecyclerMultiActivity" />
     </application>
 
 </manifest>

@@ -11,6 +11,7 @@ import com.base.library.common.activity.BaseAppActivity;
 import com.base.library.common.helper.AppViewHelper;
 import com.base.library.ui.flow.AppFlowLayout;
 import com.library.test.ui.flow.AppFlowActivity;
+import com.library.test.ui.recycler.AppRecyclerActivity;
 import com.library.test.ui.values.ValueColorActivity;
 import com.library.test.ui.values.ValueFontActivity;
 
@@ -23,6 +24,8 @@ public class MainActivity extends BaseAppActivity implements View.OnClickListene
     private static final int TYPE_VALUES_COLOR = 2;
     private static final int TYPE_VALUES_FONT = 3;
 
+    private static final int TYPE_RECYCLER = 4;
+
     @Override
     protected int getLayoutId() {
         return R.layout.activity_flow_layout;
@@ -34,6 +37,7 @@ public class MainActivity extends BaseAppActivity implements View.OnClickListene
         flowLayout.addView(getItemView(TYPE_FLOW, "FlowLayout"));
         flowLayout.addView(getItemView(TYPE_VALUES_COLOR, "ValuesColor"));
         flowLayout.addView(getItemView(TYPE_VALUES_FONT, "ValuesFont"));
+        flowLayout.addView(getItemView(TYPE_RECYCLER, "RecyclerTesting"));
     }
 
     @Override
@@ -48,6 +52,9 @@ public class MainActivity extends BaseAppActivity implements View.OnClickListene
                 break;
             case TYPE_VALUES_FONT:
                 AppNavigateUtil.startActivity(this, ValueFontActivity.class);
+                break;
+            case TYPE_RECYCLER:
+                AppNavigateUtil.startActivity(this, AppRecyclerActivity.class);
                 break;
         }
     }
