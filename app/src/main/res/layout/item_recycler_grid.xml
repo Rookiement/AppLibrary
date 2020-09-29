@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/Layout.MW"
+    android:orientation="vertical">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/item_content"
+        style="@style/Layout.MW"
+        android:background="@color/color_55_333333"
+        android:gravity="center"
+        android:minHeight="150dp"
+        android:textAppearance="@style/RobotoRegular.Red.18" />
+</LinearLayout>

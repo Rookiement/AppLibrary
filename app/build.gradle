@@ -32,7 +32,8 @@ dependencies {
 
     implementation "androidx.appcompat:appcompat:$gradle.androidxAppcompat"
     implementation "androidx.constraintlayout:constraintlayout:$gradle.androidxConstraintlayout"
-    
+    implementation "androidx.recyclerview:recyclerview:$gradle.androidxRecyclerView"
+
     testImplementation "junit:junit:$gradle.androidxJunit"
     androidTestImplementation "androidx.test.ext:junit:$gradle.androidxTestJunit"
     androidTestImplementation "androidx.test.espresso:espresso-core:$gradle.androidxTestEspresso"

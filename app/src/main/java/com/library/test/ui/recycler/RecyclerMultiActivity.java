@@ -16,7 +16,7 @@ import com.library.test.R;
 public class RecyclerMultiActivity extends BaseAppActivity {
     @Override
     protected int getLayoutId() {
-        return R.layout.activity_recycler_layout;
+        return R.layout.activity_recycler_layout_vertical;
     }
 
     @Override
