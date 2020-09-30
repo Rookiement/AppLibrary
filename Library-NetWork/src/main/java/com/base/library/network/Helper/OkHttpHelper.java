@@ -37,6 +37,7 @@ public class OkHttpHelper {
 
     private OkHttpHelper() {
         this.mOkHttpClientBuilder = new OkHttpClient.Builder();
+        initOkHttpClient();
     }
 
     public static OkHttpHelper getInstance() {
@@ -55,6 +56,10 @@ public class OkHttpHelper {
                 .connectTimeout(15, TimeUnit.SECONDS)
                 .retryOnConnectionFailure(true)
                 .build();
+    }
+
+    public OkHttpClient getOkHttpClient() {
+        return mOkHttpClient;
     }
 
     private Cache getAppNetWorkCache() {
@@ -83,7 +88,7 @@ public class OkHttpHelper {
                 ResponseBody responseBody = response.body();
                 if (responseBody != null) {
                     String body = responseBody.toString();
-                    T t = JsonParsedHelper.getInstance().fromJson(body, clazz);
+                    T t = GSonHelper.getInstance().fromJson(body, clazz);
                     if (t != null) {
                         callBack.onNetWorkCallBack(NetWorkState.SUCCESS, t, null);
                         removeCallFromArray(requestType);
@@ -133,7 +138,7 @@ public class OkHttpHelper {
                     ResponseBody responseBody = response.body();
                     if (responseBody != null) {
                         String body = responseBody.toString();
-                        T t = JsonParsedHelper.getInstance().fromJson(body, clazz);
+                        T t = GSonHelper.getInstance().fromJson(body, clazz);
                         if (t != null) {
                             callBack.onNetWorkCallBack(NetWorkState.SUCCESS, t, null);
                             return;

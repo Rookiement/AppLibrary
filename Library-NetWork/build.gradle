@@ -5,7 +5,9 @@ dependencies {
 
     //noinspection GradleDependency
     implementation "com.squareup.okhttp3:okhttp:$gradle.androidOkhttp"
-
+    implementation "com.squareup.retrofit2:retrofit:$gradle.androidRetrofit"
+    // 可选依赖，解析json字符所用
+    implementation "com.squareup.retrofit2:converter-gson:$gradle.androidRetrofitConverterGson"
     implementation "com.google.code.gson:gson:$gradle.googleGson"
 
     testImplementation "junit:junit:$gradle.androidxJunit"

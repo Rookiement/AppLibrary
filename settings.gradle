@@ -28,6 +28,8 @@ gradle.ext.androidxRoom = "2.2.5"
 
 //gradle.ext.androidOkHttp = "4.9.0"  // kotlin
 gradle.ext.androidOkhttp = "3.14.9" // java
+gradle.ext.androidRetrofit = "2.9.0"
+gradle.ext.androidRetrofitConverterGson = "2.9.0"
 
 // google library
 gradle.ext.googleMaterial = "1.1.0"
