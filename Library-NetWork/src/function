@@ -1,0 +1,4 @@
+1，okHttp（header，登陆的校验），retrofit，rxjava/livedata
+2，异步、同步请求（get，post），表单
+3，文件上传，文件下载，上传和下载的进度
+4, 缓存Json，时间和路径，和返回的数据打印格式

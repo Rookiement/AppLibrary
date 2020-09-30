@@ -24,11 +24,14 @@ gradle.ext.androidxConstraintlayout = "2.0.1"
 gradle.ext.androidxRecyclerView = "1.1.0"
 gradle.ext.androidxViewPager2 = "1.1.0-alpha01"
 gradle.ext.androidxSwipeRefresh = "1.1.0"
-
 gradle.ext.androidxRoom = "2.2.5"
+
+//gradle.ext.androidOkHttp = "4.9.0"  // kotlin
+gradle.ext.androidOkhttp = "3.14.9" // java
 
 // google library
 gradle.ext.googleMaterial = "1.1.0"
+gradle.ext.googleGson = "2.8.6"
 
 include ':Library-Utils'
 include ':Library-UI'

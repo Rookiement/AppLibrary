@@ -3,6 +3,11 @@ apply from: "../configuration/library.gradle"
 dependencies {
     implementation "androidx.appcompat:appcompat:$gradle.androidxAppcompat"
 
+    //noinspection GradleDependency
+    implementation "com.squareup.okhttp3:okhttp:$gradle.androidOkhttp"
+
+    implementation "com.google.code.gson:gson:$gradle.googleGson"
+
     testImplementation "junit:junit:$gradle.androidxJunit"
     androidTestImplementation "androidx.test.ext:junit:$gradle.androidxTestJunit"
     androidTestImplementation "androidx.test.espresso:espresso-core:$gradle.androidxTestEspresso"
