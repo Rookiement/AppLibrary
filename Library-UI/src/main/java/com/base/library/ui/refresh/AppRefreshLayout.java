@@ -397,8 +397,6 @@ public class AppRefreshLayout extends ViewGroup implements NestedScrollingParent
 
     /**
      * Simple constructor to use when creating a SwipeRefreshLayout from code.
-     *
-     * @param context
      */
     public AppRefreshLayout(@NonNull Context context) {
         this(context, null);
@@ -406,9 +404,6 @@ public class AppRefreshLayout extends ViewGroup implements NestedScrollingParent
 
     /**
      * Constructor that is called when inflating SwipeRefreshLayout from XML.
-     *
-     * @param context
-     * @param attrs
      */
     public AppRefreshLayout(@NonNull Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
