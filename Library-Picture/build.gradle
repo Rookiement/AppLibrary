@@ -1,0 +1,15 @@
+apply from: "../configuration/library.gradle"
+
+dependencies {
+    implementation "androidx.appcompat:appcompat:$gradle.androidxAppcompat"
+    implementation "com.github.bumptech.glide:glide:$gradle.githubGlide"
+
+    testImplementation "junit:junit:$gradle.androidxJunit"
+    androidTestImplementation "androidx.test.ext:junit:$gradle.androidxTestJunit"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$gradle.androidxTestEspresso"
+}
+
+def isPublishingRelease = gradle.mavePublishingRelease
+def mavenVersion = '1.0.0'
+project.version = "${mavenVersion}-${isPublishingRelease ? 'release' : 'SNAPSHOT'}"
+apply from: "../configuration/maven_publish.gradle"

@@ -1,3 +1,4 @@
+include ':Library-Picture'
 gradle.ext.androidPluginVersion = "4.0.1"
 
 gradle.ext.applicationId = "com.library.test"
@@ -34,6 +35,9 @@ gradle.ext.androidRetrofitConverterGson = "2.9.0"
 // google library
 gradle.ext.googleMaterial = "1.1.0"
 gradle.ext.googleGson = "2.8.6"
+
+// github
+gradle.ext.githubGlide = "4.11.0"
 
 include ':Library-Utils'
 include ':Library-UI'
