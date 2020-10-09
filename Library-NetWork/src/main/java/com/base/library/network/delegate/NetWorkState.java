@@ -17,7 +17,7 @@ import java.lang.annotation.RetentionPolicy;
 @Retention(RetentionPolicy.SOURCE)
 public @interface NetWorkState {
 
-    int EMPTY = 0;
-    int SUCCESS = 1;
-    int FAILURE = 2;
+    int EMPTY = 1000;
+    int SUCCESS = 1001;
+    int FAILURE = 1002;
 }

@@ -1,5 +1,7 @@
 package com.base.library.network.model;
 
+import androidx.annotation.StringRes;
+
 /**
  * @author reber
  * on 2020/9/30 16:20
@@ -8,6 +10,7 @@ public class NetworkException {
 
     private int errorCode;
     private String errorMessage;
+    private int errorMessageResId;
 
     private NetworkException() {
     }
@@ -18,6 +21,10 @@ public class NetworkException {
 
     public String getErrorMessage() {
         return errorMessage;
+    }
+
+    public int getErrorMessageResId() {
+        return errorMessageResId;
     }
 
     public static class Builder {
@@ -35,6 +42,11 @@ public class NetworkException {
 
         public Builder setErrorMessage(String errorMessage) {
             this.mException.errorMessage = errorMessage;
+            return this;
+        }
+
+        public Builder setErrorMessageResId(@StringRes int errorMessageResId) {
+            this.mException.errorMessageResId = errorMessageResId;
             return this;
         }
 
