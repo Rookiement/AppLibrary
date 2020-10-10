@@ -8,7 +8,7 @@ import java.lang.annotation.RetentionPolicy;
  * on 2020/10/9 15:42
  */
 @Retention(RetentionPolicy.SOURCE)
-public @interface RequestType {
+public @interface NetRequestType {
 
     int GET = 0;
 

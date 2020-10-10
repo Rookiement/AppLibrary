@@ -6,13 +6,13 @@ import androidx.annotation.StringRes;
  * @author reber
  * on 2020/9/30 16:20
  */
-public class NetworkException {
+public class AppException {
 
     private int errorCode;
     private String errorMessage;
     private int errorMessageResId;
 
-    private NetworkException() {
+    private AppException() {
     }
 
     public int getErrorCode() {
@@ -29,10 +29,10 @@ public class NetworkException {
 
     public static class Builder {
 
-        private NetworkException mException;
+        private AppException mException;
 
         public Builder() {
-            this.mException = new NetworkException();
+            this.mException = new AppException();
         }
 
         public Builder setErrorCode(int errorCode) {
@@ -50,7 +50,7 @@ public class NetworkException {
             return this;
         }
 
-        public NetworkException build() {
+        public AppException build() {
             return mException;
         }
     }

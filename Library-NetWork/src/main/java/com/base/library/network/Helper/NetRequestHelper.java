@@ -5,10 +5,10 @@ import android.os.Looper;
 
 import androidx.annotation.NonNull;
 
-import com.base.library.network.delegate.NetWorkCallBack;
-import com.base.library.network.delegate.NetWorkState;
-import com.base.library.network.delegate.RequestType;
-import com.base.library.network.model.NetworkException;
+import com.base.library.network.delegate.NetRequestCallBack;
+import com.base.library.network.delegate.NetRequestState;
+import com.base.library.network.delegate.NetRequestType;
+import com.base.library.network.model.AppException;
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -25,10 +25,10 @@ import retrofit2.Retrofit;
  * @author reber
  * on 2020/10/9 09:56
  */
-public class NetWorkHelper {
+public class NetRequestHelper {
 
     private static final String BASE_URL = "";
-    private static NetWorkHelper mInstance;
+    private static NetRequestHelper mInstance;
 
     private OkHttpClient mOkHttpClient;
     private Retrofit mRetrofit;
@@ -36,12 +36,12 @@ public class NetWorkHelper {
     private Gson mGSon;
     private Handler mHandler;
 
-    private NetWorkHelper() {
+    private NetRequestHelper() {
     }
 
-    public static NetWorkHelper getInstance() {
+    public static NetRequestHelper getInstance() {
         if (mInstance == null) {
-            mInstance = new NetWorkHelper();
+            mInstance = new NetRequestHelper();
         }
         return mInstance;
     }
@@ -69,14 +69,14 @@ public class NetWorkHelper {
 
     public OkHttpClient getOkHttpClient() {
         if (this.mOkHttpClient == null) {
-            this.mOkHttpClient = NetWorkUtil.getNewOkHttpClient();
+            this.mOkHttpClient = NetRequestUtil.getNewOkHttpClient();
         }
         return this.mOkHttpClient;
     }
 
     public Retrofit getRetrofit() {
         if (this.mRetrofit == null) {
-            this.mRetrofit = NetWorkUtil.getSingleRetrofitBuilder(BASE_URL, getOkHttpClient()).build();
+            this.mRetrofit = NetRequestUtil.getSingleRetrofitBuilder(BASE_URL, getOkHttpClient()).build();
         }
         return this.mRetrofit;
     }
@@ -84,11 +84,11 @@ public class NetWorkHelper {
     /**
      * OkHttp的get同步请求
      */
-    public <T> void executeSyncFromOkHttp(@RequestType int requestType, String requestUrl,
+    public <T> void executeSyncFromOkHttp(@NetRequestType int requestType, String requestUrl,
                                           @NonNull final Class<T> clazz,
-                                          @NonNull final NetWorkCallBack<T> callBack) {
+                                          @NonNull final NetRequestCallBack<T> callBack) {
         try {
-            Call newCall = getOkHttpClient().newCall(NetWorkUtil.getOkHttpRequest(requestType, requestUrl));
+            Call newCall = getOkHttpClient().newCall(NetRequestUtil.getOkHttpRequest(requestType, requestUrl));
             addCallToArray(requestUrl, newCall);
 
             Response response = newCall.execute();
@@ -103,11 +103,11 @@ public class NetWorkHelper {
     /**
      * OkHttp的get异步请求
      */
-    public <T> void executeAsyncFromOkHttp(@RequestType int requestType, final String requestUrl,
+    public <T> void executeAsyncFromOkHttp(@NetRequestType int requestType, final String requestUrl,
                                            @NonNull final Class<T> clazz,
-                                           @NonNull final NetWorkCallBack<T> callBack) {
+                                           @NonNull final NetRequestCallBack<T> callBack) {
 
-        Call newCall = getOkHttpClient().newCall(NetWorkUtil.getOkHttpRequest(requestType, requestUrl));
+        Call newCall = getOkHttpClient().newCall(NetRequestUtil.getOkHttpRequest(requestType, requestUrl));
         addCallToArray(requestUrl, newCall);
 
         newCall.enqueue(new Callback() {
@@ -135,24 +135,24 @@ public class NetWorkHelper {
 
     private <T> void handleResponseAfterRequest(Response response, String requestUrl,
                                                 @NonNull final Class<T> clazz,
-                                                @NonNull final NetWorkCallBack<T> callBack) {
+                                                @NonNull final NetRequestCallBack<T> callBack) {
         if (response != null && response.isSuccessful()) {
             ResponseBody responseBody = response.body();
             if (responseBody != null) {
                 String body = responseBody.toString();
                 T t = fromJson(body, clazz);
                 if (t != null) {
-                    callBack.onNetWorkCallBack(NetWorkState.SUCCESS, t, null);
+                    callBack.onNetWorkCallBack(NetRequestState.SUCCESS, t, null);
                     removeCallFromArray(requestUrl);
                     return;
                 }
             }
-            callBack.onNetWorkCallBack(NetWorkState.EMPTY, null, new NetworkException.Builder()
-                    .setErrorCode(NetWorkState.EMPTY)
+            callBack.onNetWorkCallBack(NetRequestState.EMPTY, null, new AppException.Builder()
+                    .setErrorCode(NetRequestState.EMPTY)
                     .build());
         } else {
-            callBack.onNetWorkCallBack(NetWorkState.FAILURE, null, new NetworkException.Builder()
-                    .setErrorCode(NetWorkState.FAILURE)
+            callBack.onNetWorkCallBack(NetRequestState.FAILURE, null, new AppException.Builder()
+                    .setErrorCode(NetRequestState.FAILURE)
                     .build());
         }
     }

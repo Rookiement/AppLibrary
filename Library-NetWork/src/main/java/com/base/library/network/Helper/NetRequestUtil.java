@@ -2,8 +2,8 @@ package com.base.library.network.Helper;
 
 import androidx.annotation.NonNull;
 
-import com.base.library.network.delegate.RequestType;
-import com.base.library.network.interceptor.AppNetworkInterceptor;
+import com.base.library.network.delegate.NetRequestType;
+import com.base.library.network.interceptor.AppNetRequestInterceptor;
 
 import java.io.File;
 import java.util.Map;
@@ -21,11 +21,11 @@ import retrofit2.converter.gson.GsonConverterFactory;
  * @author reber
  * on 2020/10/9 10:06
  */
-public class NetWorkUtil {
+public class NetRequestUtil {
 
     public static OkHttpClient getNewOkHttpClient() {
         return new OkHttpClient.Builder()
-                .addNetworkInterceptor(new AppNetworkInterceptor())
+                .addNetworkInterceptor(new AppNetRequestInterceptor())
                 .cache(getOkHttpCache())
                 .readTimeout(15, TimeUnit.SECONDS)
                 .writeTimeout(15, TimeUnit.SECONDS)
@@ -51,14 +51,14 @@ public class NetWorkUtil {
     }
 
     public static Request getOkHttpRequest(@NonNull String requestUrl) {
-        return getOkHttpRequest(RequestType.GET, requestUrl, null);
+        return getOkHttpRequest(NetRequestType.GET, requestUrl, null);
     }
 
-    public static Request getOkHttpRequest(@RequestType int requestType, @NonNull String requestUrl) {
+    public static Request getOkHttpRequest(@NetRequestType int requestType, @NonNull String requestUrl) {
         return getOkHttpRequest(requestType, requestUrl, null);
     }
 
-    public static Request getOkHttpRequest(@RequestType int requestType, @NonNull String requestUrl,
+    public static Request getOkHttpRequest(@NetRequestType int requestType, @NonNull String requestUrl,
                                            Map<String, String> params) {
         return getOkHttpRequest(requestType, requestUrl, params, null);
     }
@@ -69,17 +69,17 @@ public class NetWorkUtil {
      * @param params      请求的参数列表
      * @param headers     请求头列表
      */
-    public static Request getOkHttpRequest(@RequestType int requestType, @NonNull String requestUrl,
+    public static Request getOkHttpRequest(@NetRequestType int requestType, @NonNull String requestUrl,
                                            Map<String, String> params, Map<String, String> headers) {
         switch (requestType) {
             default:
-            case RequestType.GET:
+            case NetRequestType.GET:
                 return buildGetRequest(requestUrl, params, headers);
-            case RequestType.POST:
+            case NetRequestType.POST:
                 return buildPostRequest(requestUrl, params, headers);
-            case RequestType.DELETE:
+            case NetRequestType.DELETE:
                 return buildDeleteRequest(requestUrl, params, headers);
-            case RequestType.PUT:
+            case NetRequestType.PUT:
                 return buildPutRequest(requestUrl, params, headers);
         }
     }

@@ -12,7 +12,7 @@ import okhttp3.Response;
  * @author reber
  * on 2020/9/30 11:52
  */
-public class AppNetworkInterceptor implements Interceptor {
+public class AppNetRequestInterceptor implements Interceptor {
 
     @NonNull
     @Override

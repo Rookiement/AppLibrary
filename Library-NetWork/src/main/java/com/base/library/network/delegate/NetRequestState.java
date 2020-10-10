@@ -10,12 +10,12 @@ import java.lang.annotation.RetentionPolicy;
  * on 2020/9/30 14:55
  */
 @IntDef({
-        NetWorkState.EMPTY,
-        NetWorkState.SUCCESS,
-        NetWorkState.FAILURE
+        NetRequestState.EMPTY,
+        NetRequestState.SUCCESS,
+        NetRequestState.FAILURE
 })
 @Retention(RetentionPolicy.SOURCE)
-public @interface NetWorkState {
+public @interface NetRequestState {
 
     int EMPTY = 1000;
     int SUCCESS = 1001;
