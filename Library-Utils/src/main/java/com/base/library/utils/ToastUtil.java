@@ -115,6 +115,7 @@ public class ToastUtil {
     public static void cancel() {
         if (mToast != null) {
             mToast.cancel();
+            mToast = null;
         }
     }
 }
