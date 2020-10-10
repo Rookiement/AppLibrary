@@ -9,6 +9,11 @@ import java.util.Locale;
  * on 2020/10/10 09:49
  */
 public class LogUtil {
+
+    private LogUtil() {
+        throw new Error(getClass().getSimpleName() + " do not need instantiate!");
+    }
+
     /**
      * 判断是否可以调试
      */
