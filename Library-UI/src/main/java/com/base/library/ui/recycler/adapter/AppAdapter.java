@@ -26,7 +26,7 @@ public abstract class AppAdapter<T> extends RecyclerView.Adapter<AppViewHolder<T
     }
 
     public AppAdapter(@NonNull List<T> adapterList, boolean hasStabledIds) {
-        this.mAdapterList = new ArrayList<>();
+        this.mAdapterList = adapterList;
         setHasStableIds(hasStabledIds);
     }
 

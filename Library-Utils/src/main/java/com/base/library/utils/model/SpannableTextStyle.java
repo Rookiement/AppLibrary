@@ -1,7 +1,7 @@
 package com.base.library.utils.model;
 
 import android.content.Context;
-import android.text.style.CharacterStyle;
+import android.text.ParcelableSpan;
 
 import androidx.annotation.ColorRes;
 import androidx.annotation.DimenRes;
@@ -11,14 +11,14 @@ import androidx.core.content.ContextCompat;
  * @author reber
  * on 2020/10/10 17:17
  */
-public class StringFilter {
+public class SpannableTextStyle {
 
     private String text;
     private int textColor;
     private int textSize;
-    private CharacterStyle[] characterStyles;
+    private ParcelableSpan[] spans;
 
-    private StringFilter() {
+    private SpannableTextStyle() {
     }
 
     public String getText() {
@@ -33,8 +33,8 @@ public class StringFilter {
         return textSize;
     }
 
-    public CharacterStyle[] getCharacterStyles() {
-        return characterStyles;
+    public ParcelableSpan[] getSpans() {
+        return spans;
     }
 
     public static class Builder {
@@ -42,12 +42,12 @@ public class StringFilter {
         private String content;
         private int colorResId;
         private int textSizeResId;
-        private CharacterStyle[] spanStyles;
+        private ParcelableSpan[] spans;
 
-        private final StringFilter mStringFilter;
+        private final SpannableTextStyle mSpannableTextStyle;
 
         public Builder() {
-            this.mStringFilter = new StringFilter();
+            this.mSpannableTextStyle = new SpannableTextStyle();
         }
 
         public Builder setContent(String content) {
@@ -65,20 +65,20 @@ public class StringFilter {
             return this;
         }
 
-        public void setSpanStyles(CharacterStyle[] spanStyles) {
-            this.spanStyles = spanStyles;
+        public void setSpans(ParcelableSpan[] spans) {
+            this.spans = spans;
         }
 
-        public StringFilter build(Context context) {
-            this.mStringFilter.text = content;
+        public SpannableTextStyle build(Context context) {
+            this.mSpannableTextStyle.text = content;
             if (colorResId != 0) {
-                this.mStringFilter.textColor = ContextCompat.getColor(context, colorResId);
+                this.mSpannableTextStyle.textColor = ContextCompat.getColor(context, colorResId);
             }
             if (textSizeResId != 0) {
-                this.mStringFilter.textSize = context.getResources().getDimensionPixelSize(textSizeResId);
+                this.mSpannableTextStyle.textSize = context.getResources().getDimensionPixelSize(textSizeResId);
             }
-            this.mStringFilter.characterStyles = spanStyles;
-            return this.mStringFilter;
+            this.mSpannableTextStyle.spans = spans;
+            return this.mSpannableTextStyle;
         }
     }
 }

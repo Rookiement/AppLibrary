@@ -49,7 +49,7 @@ public class AppViewHelper implements AppViewDelegate<AppViewHelper>, LifecycleO
     }
 
     @Override
-    public AppViewHelper setText(@IdRes int viewId, String text) {
+    public AppViewHelper setText(@IdRes int viewId, CharSequence text) {
         TextView textView = findViewById(viewId);
         textView.setText(text);
         return this;

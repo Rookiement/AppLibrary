@@ -20,7 +20,7 @@ gradle.ext.androidxTestJunit = "1.1.2"
 gradle.ext.androidxTestEspresso = "3.3.0"
 
 gradle.ext.androidxAppcompat = "1.2.0"
-gradle.ext.androidxConstraintlayout = "2.0.1"
+gradle.ext.androidxConstraintlayout = "2.0.2"
 gradle.ext.androidxRecyclerView = "1.1.0"
 gradle.ext.androidxViewPager2 = "1.1.0-alpha01"
 gradle.ext.androidxSwipeRefresh = "1.1.0"

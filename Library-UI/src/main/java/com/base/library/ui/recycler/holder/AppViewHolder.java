@@ -14,7 +14,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.StringRes;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
-import androidx.lifecycle.LifecycleRegistry;
 import androidx.lifecycle.OnLifecycleEvent;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -34,11 +33,11 @@ public class AppViewHolder<T> extends RecyclerView.ViewHolder implements Lifecyc
         this(itemView, null);
     }
 
-    public AppViewHolder(@NonNull View itemView, LifecycleRegistry lifecycleRegistry) {
+    public AppViewHolder(@NonNull View itemView, Lifecycle lifecycle) {
         super(itemView);
         this.mViewHelper = new AppViewHelper(itemView);
-        if (lifecycleRegistry != null) {
-            lifecycleRegistry.addObserver(this);
+        if (lifecycle != null) {
+            lifecycle.addObserver(this);
         }
     }
 
@@ -47,7 +46,7 @@ public class AppViewHolder<T> extends RecyclerView.ViewHolder implements Lifecyc
     }
 
     @Override
-    public AppViewHolder<T> setText(@IdRes int viewId, String text) {
+    public AppViewHolder<T> setText(@IdRes int viewId, CharSequence text) {
         mViewHelper.setText(viewId, text);
         return this;
     }

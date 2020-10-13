@@ -17,7 +17,7 @@ import androidx.annotation.StringRes;
  */
 public interface AppViewDelegate<T> {
 
-    T setText(@IdRes int viewId, String text);
+    T setText(@IdRes int viewId, CharSequence text);
 
     T setText(@IdRes int viewId, @StringRes int stringResId);
 
