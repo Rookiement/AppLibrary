@@ -27,7 +27,7 @@ import retrofit2.Retrofit;
  */
 public class NetRequestHelper {
 
-    private static final String BASE_URL = "";
+    private String mBaseUrl = "";
     private static NetRequestHelper mInstance;
 
     private OkHttpClient mOkHttpClient;
@@ -39,11 +39,25 @@ public class NetRequestHelper {
     private NetRequestHelper() {
     }
 
+    private NetRequestHelper(String baseUrl) {
+        this.mBaseUrl = baseUrl;
+    }
+
+    public static void init(String baseUrl) {
+        if (mInstance == null) {
+            mInstance = new NetRequestHelper(baseUrl);
+        }
+    }
+
     public static NetRequestHelper getInstance() {
         if (mInstance == null) {
-            mInstance = new NetRequestHelper();
+            throw new Error(" please init base url before getInstance()!");
         }
         return mInstance;
+    }
+
+    public void setBaseUrl(String baseUrl) {
+        this.mBaseUrl = baseUrl;
     }
 
     private HashMap<String, Call> getOkHttpCallArray() {
@@ -76,7 +90,7 @@ public class NetRequestHelper {
 
     public Retrofit getRetrofit() {
         if (this.mRetrofit == null) {
-            this.mRetrofit = NetRequestUtil.getSingleRetrofitBuilder(BASE_URL, getOkHttpClient()).build();
+            this.mRetrofit = NetRequestUtil.getSingleRetrofitBuilder(mBaseUrl, getOkHttpClient()).build();
         }
         return this.mRetrofit;
     }
@@ -88,7 +102,8 @@ public class NetRequestHelper {
                                           @NonNull final Class<T> clazz,
                                           @NonNull final NetRequestCallBack<T> callBack) {
         try {
-            Call newCall = getOkHttpClient().newCall(NetRequestUtil.getOkHttpRequest(requestType, requestUrl));
+            Call newCall = getOkHttpClient().newCall(NetRequestUtil.getOkHttpRequest(requestType,
+                    String.format("%s%s", mBaseUrl, requestUrl)));
             addCallToArray(requestUrl, newCall);
 
             Response response = newCall.execute();
@@ -107,7 +122,8 @@ public class NetRequestHelper {
                                            @NonNull final Class<T> clazz,
                                            @NonNull final NetRequestCallBack<T> callBack) {
 
-        Call newCall = getOkHttpClient().newCall(NetRequestUtil.getOkHttpRequest(requestType, requestUrl));
+        Call newCall = getOkHttpClient().newCall(NetRequestUtil.getOkHttpRequest(requestType,
+                String.format("%s%s", mBaseUrl, requestUrl)));
         addCallToArray(requestUrl, newCall);
 
         newCall.enqueue(new Callback() {

@@ -17,17 +17,20 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".ui.AppUIActivity" />
         <activity android:name=".ui.values.ValueColorActivity" />
         <activity android:name=".ui.values.ValueFontActivity" />
-
         <activity android:name=".ui.flow.AppFlowActivity" />
-
         <activity android:name=".ui.recycler.AppRecyclerActivity" />
         <activity android:name=".ui.recycler.RecyclerLinearDecorationActivity" />
         <activity android:name=".ui.recycler.RecyclerGridDecorationActivity" />
         <activity android:name=".ui.recycler.RecyclerMultiActivity" />
-
         <activity android:name=".ui.refresh.AppRefreshActivity" />
+
+        <activity android:name=".util.AppUtilActivity" />
+        <activity android:name=".util.UtilSpannableStringActivity" />
+        <activity android:name=".util.UtilLogActivity" />
+        <activity android:name=".util.UtilToastActivity" />
     </application>
 
 </manifest>

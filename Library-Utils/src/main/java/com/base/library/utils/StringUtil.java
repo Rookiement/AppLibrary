@@ -11,6 +11,6 @@ public class StringUtil {
      * 判断String的内容是否为null或者为Empty
      */
     public static boolean isNullOrEmpty(String content) {
-        return content == null || content.isEmpty();
+        return content == null || content.trim().isEmpty();
     }
 }
